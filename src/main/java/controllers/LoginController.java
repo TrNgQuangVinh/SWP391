@@ -6,19 +6,21 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import DAO.UserDAO;
+import DAO.UserDTO;
 
 /**
- * Servlet implementation class MainController
+ * Servlet implementation class LoginController
  */
-@WebServlet("/MainController")
-public class MainController extends HttpServlet {
+@WebServlet("/LoginController")
+public class LoginController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    private static final String WELCOME = "index.html";
-    
-    private static final String REDIR_LOGIN = "ToLogin";
-    private static final String LOGIN_VIEW = "login.html";
-    private static final String LOGIN = "Login";
-    private static final String LOGIN_CONTROLLER = "LoginController";
+	
+	private static final String ERROR = "login.html";
+	private static final String SUCCESS = "success.html";
+       
     /**
      * @throws IOException 
      * @throws ServletException 
@@ -26,21 +28,24 @@ public class MainController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	response.setContentType("text/html;charset=UTF-8");
-        String url=WELCOME;
-        try{
-            String action=request.getParameter("action");
-            //solution 1
-            if(REDIR_LOGIN.equals(action)) {
-                url=LOGIN_VIEW;
-            } else if(LOGIN.equals(action)) {
-            	url=LOGIN_CONTROLLER;
+        String url=ERROR;
+        try {
+            String userID=request.getParameter("userID");
+            String password=request.getParameter("password");
+            UserDAO dao = new UserDAO();
+            UserDTO user = dao.checkLogin(userID, password);
+            if(user!=null){
+                HttpSession session = request.getSession();
+                session.setAttribute("LOGIN_USER", user.getFullName());
+                url = SUCCESS;
             }
-            
-        }catch(Exception e){
-            log("Error at MainController:"+e.toString());
-        }finally{
+        } catch (Exception e) {
+            log("Error at LoginServlet: " + e.toString());
+        } finally {
+            //response.sendRedirect(url);
             request.getRequestDispatcher(url).forward(request, response);
         }
+    	
         // TODO Auto-generated constructor stub
     }
 
