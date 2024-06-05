@@ -19,6 +19,9 @@ public class MainController extends HttpServlet {
     private static final String LOGIN_VIEW = "login.html";
     private static final String LOGIN = "Login";
     private static final String LOGIN_CONTROLLER = "LoginController";
+    
+    private static final String REGISTER = "Register";
+    private static final String REGISTER_CONTROLLER = "RegisterController";
     /**
      * @throws IOException 
      * @throws ServletException 
