@@ -26,7 +26,7 @@ import com.swp.service.UserService;
 import lombok.AllArgsConstructor;
 
 @Service
-@AllArgsConstructor
+
 public class UserServiceImpl implements UserService {
 	
 	private UserRepository userRepo;
@@ -103,5 +103,14 @@ public class UserServiceImpl implements UserService {
 
 	private Collection<? extends GrantedAuthority> mapRoleToAuthorities(String roleString) {
 		return Collections.singletonList(new SimpleGrantedAuthority(roleString));
+	}
+
+	@Override
+	public UserDTO getUserByEmailOrName(String emailOrName) {
+		User user = userRepo.findByEmail(emailOrName);
+		if(user == null) {
+			throw new UsernameNotFoundException("Invalid email");
+		}
+		return UserMapper.mapToUserDTO(user);
 	}
 }

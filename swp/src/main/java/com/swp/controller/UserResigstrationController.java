@@ -1,6 +1,7 @@
 package com.swp.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -10,6 +11,7 @@ import com.swp.dto.UserResigstration;
 import com.swp.service.UserService;
 
 @Controller
+@CrossOrigin(origins = "*")
 @RequestMapping("/registration")
 public class UserResigstrationController {
 	private UserService userService;

@@ -13,6 +13,8 @@ public interface UserService extends UserDetailsService{
 	
 	UserDTO getUserById(String accountId);
 	
+	UserDTO getUserByEmailOrName(String emailOrName);
+	
 	List<UserDTO> getAllUser();
 	
 	UserDTO updateUser(String accountId,UserDTO updatedUser);

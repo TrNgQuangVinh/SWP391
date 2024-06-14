@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.swp.dto.UserDTO;
 import com.swp.service.UserService;
-
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/api/users")
 public class UserController {
@@ -49,7 +49,17 @@ public class UserController {
 		List<UserDTO> users = userService.getAllUser();
 		return ResponseEntity.ok(users);
 	}
-
+	
+	//GetUserByEmail
+	@GetMapping(params = "email")
+	public ResponseEntity<UserDTO> getUserByEmail(@RequestParam String  email){
+		if(email == null||email.trim().isEmpty()) {
+			return ResponseEntity.badRequest().body(null);
+		}
+		UserDTO userDTO = userService.getUserByEmailOrName(email);
+		return ResponseEntity.ok(userDTO);
+	}
+	
 	// UpdateUser
 	@PutMapping("{id}")
 	public ResponseEntity<UserDTO> updateUser(@PathVariable("id") String accountId, @RequestBody UserDTO updatedUser) {
