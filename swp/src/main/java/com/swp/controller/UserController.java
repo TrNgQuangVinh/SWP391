@@ -52,7 +52,7 @@ public class UserController {
 	
 	//GetUserByEmail
 	@GetMapping(params = "email")
-	public ResponseEntity<UserDTO> getUserByEmail(@RequestParam String  email){
+	public ResponseEntity<UserDTO> getUserByEmail(@RequestParam String email){
 		if(email == null||email.trim().isEmpty()) {
 			return ResponseEntity.badRequest().body(null);
 		}

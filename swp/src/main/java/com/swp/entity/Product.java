@@ -2,8 +2,11 @@ package com.swp.entity;
 
 import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
@@ -23,26 +26,34 @@ public class Product {
 	@Id
 	@Column(name = "ProductID")
 	private String ProductId;
+	@Column
 	private String ProductName;
+	@Column
 	private int ProductSize;
+	@Column
 	private float ProductPrice;
+	@Column
 	private int Quantity;
-	@ManyToOne
-    @JoinColumn(name = "CategoryId")
-    private Category categoryId;
-	@ManyToOne
-	@JoinColumn(name = "diamondId")
+	@JsonIgnore
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "CategoryId", referencedColumnName="categoryId")
+	private Category categoryId;
+	@JsonIgnore
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "DiamondId", referencedColumnName="DiamondID")
 	private Diamond diamondId;
-	@ManyToOne
-	@JoinColumn(name = "shellId")
+	@JsonIgnore
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "ShellId", referencedColumnName="ShellID")
 	private Shell shellId;
-	@ManyToOne
-	@JoinColumn(name = "userId")
-	private User userId;
+	@JsonIgnore
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "AccountId", referencedColumnName="AccountID")
+	private User accountId;
 	@Override
 	public int hashCode() {
-		return Objects.hash(ProductId, ProductName, ProductPrice, ProductSize, Quantity, categoryId, diamondId, shellId,
-				userId);
+		return Objects.hash(ProductId, ProductName, ProductPrice, ProductSize, /*Quantity,*/ categoryId, diamondId, shellId,
+				accountId);
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -57,13 +68,13 @@ public class Product {
 				&& Float.floatToIntBits(ProductPrice) == Float.floatToIntBits(other.ProductPrice)
 				&& ProductSize == other.ProductSize && Quantity == other.Quantity
 				&& Objects.equals(categoryId, other.categoryId) && Objects.equals(diamondId, other.diamondId)
-				&& Objects.equals(shellId, other.shellId) && Objects.equals(userId, other.userId);
+				&& Objects.equals(shellId, other.shellId) && Objects.equals(accountId, other.accountId);
 	}
 	@Override
 	public String toString() {
 		return "Product [ProductId=" + ProductId + ", ProductName=" + ProductName + ", ProductSize=" + ProductSize
 				+ ", ProductPrice=" + ProductPrice + ", Quantity=" + Quantity + ", categoryId=" + categoryId
-				+ ", diamondId=" + diamondId + ", shellId=" + shellId + ", userId=" + userId + "]";
+				+ ", diamondId=" + diamondId + ", shellId=" + shellId + ", accountId=" + accountId + "]";
 	}
 	
 }

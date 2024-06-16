@@ -14,6 +14,7 @@ CREATE TABLE Products (
   DiamondsDiamondID varchar(3) NOT NULL, 
   ShellsShellID     varchar(3) NOT NULL, 
   AccountsAccountID varchar(6) NOT NULL, 
+  Quantity          int NULL, 
   PRIMARY KEY (ProductID));
 CREATE TABLE Orders (
   OrderID           varchar(6) NOT NULL, 
@@ -58,12 +59,14 @@ CREATE TABLE Diamonds (
   Clarity     varchar(4) NULL, 
   Cut         varchar(12) NULL, 
   Price       float(10) NULL, 
+  Quantity    int NULL, 
   PRIMARY KEY (DiamondID));
 CREATE TABLE Shells (
   ShellID    varchar(3) NOT NULL, 
   Material   varchar(16) NULL, 
   Name       varchar(20) NULL, 
   ShellPrice float(10) NULL, 
+  Quantity   int NULL, 
   PRIMARY KEY (ShellID));
 CREATE TABLE Accounts (
   AccountID   varchar(6) NOT NULL, 
@@ -127,4 +130,3 @@ INSERT [dbo].[Accounts]([AccountID],[Email],[Password],[FullName],[UserName],[Ph
 VALUES (N'SS001',N'SuperSale@gmail.com',N'nguyenasale',N'Nguyen Van A',N'SuperSale',N'024589751',N'',N'SS')
 INSERT [dbo].[Accounts]([AccountID],[Email],[Password],[FullName],[UserName],[PhoneNumber],[Address],[Role]) 
 VALUES (N'US001',N'laclongvang@gmail.com',N'laclong01',N'Long Hong Anh',N'Lac Long',N'098564127',N'97 Hoang Huu Nam, TP Thu Duc, HCM',N'US')
-
