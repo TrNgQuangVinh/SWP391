@@ -3,8 +3,11 @@ package com.swp.entity;
 import java.util.List;
 import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
@@ -23,11 +26,16 @@ public class Shell {
 	@Id
 	@Column(name = "ShellID")
 	private String shellId;
+	@Column
 	private String material;
+	@Column
 	private String name;
+	@Column
 	private float price;
+	@Column
 	private int quantity;
-	@OneToMany(mappedBy = "shellId")
+//	@JsonIgnore
+	@OneToMany(mappedBy = "shellId", fetch = FetchType.LAZY)
 	private List<Product> products;
 
 	@Override

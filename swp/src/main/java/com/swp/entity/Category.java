@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Objects;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
@@ -22,7 +23,7 @@ public class Category {
 	@Id
 	private String CategoryId;
 	private String CategoryName;
-	@OneToMany(mappedBy = "categoryId")
+	@OneToMany(mappedBy = "categoryId", fetch = FetchType.LAZY)
 	private List<Product> products;
 
 	@Override
