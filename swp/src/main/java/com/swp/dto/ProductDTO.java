@@ -20,8 +20,8 @@ public class ProductDTO {
 	private int ProductSize;
 	private float ProductPrice;
 	private int Quantity;
-    private Category categoryId;
-	private Diamond diamondId;
-	private Shell shellId;
-	private User accountId;
+    private String categoryId;
+	private String diamondId;
+	private String shellId;
+	private String accountId;
 }

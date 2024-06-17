@@ -35,21 +35,26 @@ public class Product {
 	@Column
 	private int Quantity;
 	@JsonIgnore
-	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "CategoryId", referencedColumnName="categoryId")
-	private Category categoryId;
+//	@ManyToOne(fetch = FetchType.EAGER)
+	
+	private String categoryId;
 	@JsonIgnore
-	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "DiamondId", referencedColumnName="DiamondID")
-	private Diamond diamondId;
+//	@ManyToOne(fetch = FetchType.EAGER)
+	
+	private String diamondId;
 	@JsonIgnore
-	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "ShellId", referencedColumnName="ShellID")
-	private Shell shellId;
+//	@ManyToOne(fetch = FetchType.EAGER)
+	
+	private String shellId;
 	@JsonIgnore
+	private String accountId;
+	
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "AccountId", referencedColumnName="AccountID")
-	private User accountId;
+	@JoinColumn(name = "CategoryId", referencedColumnName="categoryId")
+	@JoinColumn(name = "DiamondId", referencedColumnName="DiamondID")
+	@JoinColumn(name = "ShellId", referencedColumnName="ShellID")
+	
 	@Override
 	public int hashCode() {
 		return Objects.hash(ProductId, ProductName, ProductPrice, ProductSize, /*Quantity,*/ categoryId, diamondId, shellId,
