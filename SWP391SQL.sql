@@ -5,19 +5,8 @@ DROP DATABASE [DiamondShop]
 GO	 
 /****** Object:  Database [DiamondShop]    Script Date: 18-Jun-24 16:02:32 ******/
 CREATE DATABASE [DiamondShop]
- CONTAINMENT = NONE
- ON  PRIMARY 
-( NAME = N'DiamondShop', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\DATA\DiamondShop.mdf' , SIZE = 8192KB , MAXSIZE = UNLIMITED, FILEGROWTH = 65536KB )
- LOG ON 
-( NAME = N'DiamondShop_log', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\DATA\DiamondShop_log.ldf' , SIZE = 8192KB , MAXSIZE = 2048GB , FILEGROWTH = 65536KB )
- WITH CATALOG_COLLATION = DATABASE_DEFAULT, LEDGER = OFF
 GO
-ALTER DATABASE [DiamondShop] SET COMPATIBILITY_LEVEL = 160
-GO
-IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
-begin
-EXEC [DiamondShop].[dbo].[sp_fulltext_database] @action = 'enable'
-end
+USE DATABASE [DiamondShop]
 GO
 ALTER DATABASE [DiamondShop] SET ANSI_NULL_DEFAULT OFF 
 GO
