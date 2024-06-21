@@ -15,13 +15,13 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ProductDTO {
-	private String ProductId;
+	private String ProductID;
 	private String ProductName;
 	private int ProductSize;
 	private float ProductPrice;
 	private int Quantity;
-    private Category categoryId;
-	private Diamond diamondId;
-	private Shell shellId;
-	private User accountId;
+    private String CategoryID;
+	private String DiamondID;
+	private String ShellID;
+	private String AccountID;
 }
