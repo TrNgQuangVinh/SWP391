@@ -25,7 +25,7 @@ import lombok.Setter;
 public class Product {
 	@Id
 	@Column(name = "ProductID")
-	private String ProductId;
+	private String ProductID;
 	@Column
 	private String ProductName;
 	@Column
@@ -37,28 +37,28 @@ public class Product {
 	@JsonIgnore
 //	@ManyToOne(fetch = FetchType.EAGER)
 	
-	private String categoryId;
+	private String CategoryID;
 	@JsonIgnore
 //	@ManyToOne(fetch = FetchType.EAGER)
 	
-	private String diamondId;
+	private String DiamondID;
 	@JsonIgnore
 //	@ManyToOne(fetch = FetchType.EAGER)
 	
-	private String shellId;
+	private String ShellID;
 	@JsonIgnore
-	private String accountId;
+	private String AccountID;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "AccountId", referencedColumnName="AccountID")
-	@JoinColumn(name = "CategoryId", referencedColumnName="categoryId")
-	@JoinColumn(name = "DiamondId", referencedColumnName="DiamondID")
-	@JoinColumn(name = "ShellId", referencedColumnName="ShellID")
+	@JoinColumn(name = "AccountID", referencedColumnName="AccountID")
+	@JoinColumn(name = "CategoryID", referencedColumnName="CategoryID")
+	@JoinColumn(name = "DiamondID", referencedColumnName="DiamondID")
+	@JoinColumn(name = "ShellID", referencedColumnName="ShellID")
 	
 	@Override
 	public int hashCode() {
-		return Objects.hash(ProductId, ProductName, ProductPrice, ProductSize, /*Quantity,*/ categoryId, diamondId, shellId,
-				accountId);
+		return Objects.hash(ProductID, ProductName, ProductPrice, ProductSize, Quantity, CategoryID, DiamondID, ShellID,
+				AccountID);
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -69,17 +69,17 @@ public class Product {
 		if (getClass() != obj.getClass())
 			return false;
 		Product other = (Product) obj;
-		return Objects.equals(ProductId, other.ProductId) && Objects.equals(ProductName, other.ProductName)
+		return Objects.equals(ProductID, other.ProductID) && Objects.equals(ProductName, other.ProductName)
 				&& Float.floatToIntBits(ProductPrice) == Float.floatToIntBits(other.ProductPrice)
 				&& ProductSize == other.ProductSize && Quantity == other.Quantity
-				&& Objects.equals(categoryId, other.categoryId) && Objects.equals(diamondId, other.diamondId)
-				&& Objects.equals(shellId, other.shellId) && Objects.equals(accountId, other.accountId);
+				&& Objects.equals(CategoryID, other.CategoryID) && Objects.equals(DiamondID, other.DiamondID)
+				&& Objects.equals(ShellID, other.ShellID) && Objects.equals(AccountID, other.AccountID);
 	}
 	@Override
 	public String toString() {
-		return "Product [ProductId=" + ProductId + ", ProductName=" + ProductName + ", ProductSize=" + ProductSize
-				+ ", ProductPrice=" + ProductPrice + ", Quantity=" + Quantity + ", categoryId=" + categoryId
-				+ ", diamondId=" + diamondId + ", shellId=" + shellId + ", accountId=" + accountId + "]";
+		return "Product [ProductID=" + ProductID + ", ProductName=" + ProductName + ", ProductSize=" + ProductSize
+				+ ", ProductPrice=" + ProductPrice + ", Quantity=" + Quantity + ", CategoryID=" + CategoryID
+				+ ", DiamondID=" + DiamondID + ", ShellID=" + ShellID + ", accountId=" + AccountID + "]";
 	}
 	
 }
