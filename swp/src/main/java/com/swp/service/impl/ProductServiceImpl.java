@@ -62,19 +62,18 @@ public class ProductServiceImpl implements ProductService{
 	@Override
 	public Product updateProduct(String id, Product product) {
 		Product prod = prodRepo.findById(id)
-				.orElseThrow(()-> new ProductNotFoundException("Product does not exist with this id:" + id));
-		prod.setCategoryID(product.getCategoryID());
-		prod.setDiamondID(product.getDiamondID());
-		prod.setProductID(product.getProductID());
+				.orElseThrow();
+		prod.setCategoryId(product.getCategoryId());
+		prod.setDiamondId(product.getDiamondId());
+		prod.setProductId(product.getProductId());
 		prod.setProductName(product.getProductName());
 		prod.setProductPrice(product.getProductPrice());
 		prod.setProductSize(product.getProductSize());
 		prod.setQuantity(product.getQuantity());
-		prod.setShellID(product.getShellID());
-		prod.setAccountID(product.getAccountID());
+		prod.setShellId(product.getShellId());
+		prod.setAccountId(product.getAccountId());
 		Product updatedProd = prodRepo.save(prod);
-		//return ProductMapper.mapToProductDTO(updatedProd);
-		return updatedProd;
+		return product;
 	}
 
 	@Override

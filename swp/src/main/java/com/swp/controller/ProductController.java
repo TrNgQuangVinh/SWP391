@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.swp.dto.ProductDTO;
-import com.swp.entity.Category;
 import com.swp.entity.Product;
 import com.swp.service.ProductService;
 
@@ -29,7 +28,7 @@ public class ProductController {
 	@Autowired
 	private ProductService productService;
 	
-	public ProductController() {
+	public ProductController(ProductService productService) {
 		super();
 		this.productService = productService;
 	}
