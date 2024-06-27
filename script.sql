@@ -1,7 +1,12 @@
-﻿USE [master]
+USE [master]
+GO
+alter database [DiamondShop] set single_user with rollback immediate
+DROP DATABASE [DiamondShop]
 GO
 /****** Object:  Database [DiamondShop]    Script Date: 25-Jun-24 16:42:38 ******/
 CREATE DATABASE [DiamondShop]
+GO
+USE [DiamondShop]
 GO
 IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
 begin
