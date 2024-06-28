@@ -61,10 +61,4 @@ public class OrderDetailServiceImpl implements OrderDetailService {
 		return updated;
 	}
 
-	@Override
-	public void deleteOrderDetail(String id) {
-		List<Order_Detail> details = detailRepo.findOrderDetailsWithProducts(id);
-		detailRepo.deleteAll(details);
-	}
-
 }
