@@ -14,7 +14,9 @@ public class ProductMapper {
 				prod.getCategoryId(),
 				prod.getDiamondId(),
 				prod.getShellId(),
-				prod.getAccountId()
+				prod.getAccountId(),
+				prod.getDescription(),
+				prod.getImageLink()
 				);
 	}
 	public static Product mapToProduct(ProductDTO prodDTO) {
@@ -27,7 +29,9 @@ public class ProductMapper {
 				prodDTO.getCategoryId(),
 				prodDTO.getDiamondId(),
 				prodDTO.getShellId(),
-				prodDTO.getAccountId()
+				prodDTO.getAccountId(),
+				prodDTO.getDescription(),
+				prodDTO.getImageLink()
 				);
 	}
 }

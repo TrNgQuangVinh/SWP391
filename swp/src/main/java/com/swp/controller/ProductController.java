@@ -67,7 +67,6 @@ public class ProductController {
 		return ResponseEntity.ok(upProduct);
 	}
 
-	// DeleteUserById
 	@DeleteMapping("{id}")
 	public ResponseEntity<String> deleteProduct(@PathVariable("id") String productID) {
 		productService.deleteProduct(productID);

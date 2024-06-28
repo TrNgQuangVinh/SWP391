@@ -25,25 +25,36 @@ import com.swp.service.OrderDetailService;
 public class OrderDetailController {
 	@Autowired
 	private OrderDetailService service;
+
+	public OrderDetailController(OrderDetailService service) {
+		super();
+		this.service = service;
+	}
+
 	@GetMapping("/all")
-	public ResponseEntity<List<OrderDetailDTO>> getAllOrderDetail(){
+	public ResponseEntity<List<OrderDetailDTO>> getAllOrderDetail() {
 		return ResponseEntity.ok(service.getAllOrderDetail());
 	}
+
 	@GetMapping("/get/order/{id}")
-	public ResponseEntity<List<OrderDetailDTO>> getOrderDetails(@PathVariable("id")String id){
+	public ResponseEntity<List<OrderDetailDTO>> getOrderDetails(@PathVariable("id") String id) {
 		return ResponseEntity.ok(service.getOrdersByOrderId(id));
 	}
+
 	@GetMapping("/get/order")
-	public ResponseEntity<OrderDetailDTO> getAnOrderDetail(@RequestParam String ordersId,@RequestParam String prodId){
+	public ResponseEntity<OrderDetailDTO> getAnOrderDetail(@RequestParam String ordersId, @RequestParam String prodId) {
 		return ResponseEntity.ok(service.getOrderDetailbyBoth(ordersId, prodId));
 	}
+
 	@PostMapping
-	public ResponseEntity<OrderDetailDTO> addOrderDetail(@RequestBody OrderDetailDTO dto){
+	public ResponseEntity<OrderDetailDTO> addOrderDetail(@RequestBody OrderDetailDTO dto) {
 		OrderDetailDTO newDetail = service.addOrderDetail(dto);
-		return new ResponseEntity<>(newDetail,HttpStatus.CREATED);
+		return new ResponseEntity<>(newDetail, HttpStatus.CREATED);
 	}
+
 	@PutMapping("/update")
-	public ResponseEntity<Order_Detail> updateDetail(@RequestParam String ordersId,@RequestParam String prodId,@RequestBody Order_Detail detail){
+	public ResponseEntity<Order_Detail> updateDetail(@RequestParam String ordersId, @RequestParam String prodId,
+			@RequestBody Order_Detail detail) {
 		Order_Detail needUpdate = service.updateOrderDetail(ordersId, prodId, detail);
 		return ResponseEntity.ok(needUpdate);
 	}
