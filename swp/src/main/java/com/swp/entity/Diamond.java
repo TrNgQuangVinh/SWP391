@@ -3,6 +3,8 @@ package com.swp.entity;
 import java.util.List;
 import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -38,10 +40,10 @@ public class Diamond {
 	private int quantity;
 //	@JsonIgnore
 	@OneToMany(mappedBy = "diamondId", fetch = FetchType.LAZY)
-	private List<Product> products;
+	//private List<Product> products;
 	@Override
 	public int hashCode() {
-		return Objects.hash(caratWeight, clarity, color, cut, diamondId, price, products ,quantity);
+		return Objects.hash(caratWeight, clarity, color, cut, diamondId, price,/* products,*/quantity);
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -56,12 +58,12 @@ public class Diamond {
 				&& Objects.equals(clarity, other.clarity) && Objects.equals(color, other.color)
 				&& Objects.equals(cut, other.cut) && Objects.equals(diamondId, other.diamondId)
 				&& Float.floatToIntBits(price) == Float.floatToIntBits(other.price)
-				&& Objects.equals(products, other.products) && quantity == other.quantity;
+				&& /*Objects.equals(products, other.products) &&*/ quantity == other.quantity;
 	}
 	@Override
 	public String toString() {
 		return "Diamond [diamondId=" + diamondId + ", caratWeight=" + caratWeight + ", color=" + color + ", cut=" + cut
-				+ ", clarity=" + clarity + ", price=" + price + ", quantity=" + quantity + ", products=" + products
+				+ ", clarity=" + clarity + ", price=" + price + ", quantity=" + quantity /*+ ", products=" + products*/
 				+ "]";
 	}
 	
