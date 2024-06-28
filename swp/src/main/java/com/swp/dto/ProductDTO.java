@@ -1,10 +1,5 @@
 package com.swp.dto;
 
-import com.swp.entity.Category;
-import com.swp.entity.Diamond;
-import com.swp.entity.Shell;
-import com.swp.entity.User;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -24,4 +19,6 @@ public class ProductDTO {
 	private String diamondId;
 	private String shellId;
 	private String accountId;
+	private String Description;
+	private String ImageLink;
 }
