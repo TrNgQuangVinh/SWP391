@@ -46,14 +46,53 @@ public class ProductController {
 		ProductDTO product = productService.getProductbyID(id);
 		return ResponseEntity.ok(product);
 	}
-	@GetMapping("/get")
-	public ResponseEntity<ProductDTO> getProductByCategory(@RequestParam String id) {
+	@GetMapping("/get/category/{id}")
+	public ResponseEntity<List<ProductDTO>> getProductByCategory(@PathVariable("id") String id) {
 		//Category category = new Category(id, name, null);
 		if (id == null || id.trim().isEmpty()) {
 			// Return an appropriate response or throw a custom exception
 			return ResponseEntity.badRequest().body(null);
 		}
-		ProductDTO products = productService.getProductbyCategory(id);
+		List<ProductDTO> products = productService.getProductbyCategory(id);
+		return ResponseEntity.ok(products);
+	}
+	@GetMapping("/get/diamond/{id}")
+	public ResponseEntity<List<ProductDTO>> getProductByDiamond(@PathVariable("id") String id) {
+		//Category category = new Category(id, name, null);
+		if (id == null || id.trim().isEmpty()) {
+			// Return an appropriate response or throw a custom exception
+			return ResponseEntity.badRequest().body(null);
+		}
+		List<ProductDTO> products = productService.getProductbyDiamond(id);
+		return ResponseEntity.ok(products);
+	}
+	@GetMapping("/get/shell/{id}")
+	public ResponseEntity<List<ProductDTO>> getProductByShell(@PathVariable("id") String id) {
+		//Category category = new Category(id, name, null);
+		if (id == null || id.trim().isEmpty()) {
+			// Return an appropriate response or throw a custom exception
+			return ResponseEntity.badRequest().body(null);
+		}
+		List<ProductDTO> products = productService.getProductbyShell(id);
+		return ResponseEntity.ok(products);
+	}
+	@GetMapping("/get/quantity/{quantity}")
+	public ResponseEntity<List<ProductDTO>> getProductByQuantity(@PathVariable("quantity") String quantity) {
+		int quant = Integer.parseInt(quantity);
+		List<ProductDTO> products = productService.getProductbyQuantity(quant);
+		return ResponseEntity.ok(products);
+	}
+	@GetMapping("/get/price/{priceMin}/{priceMax}")
+	public ResponseEntity<List<ProductDTO>> getProductByPrice(@PathVariable("priceMin") String priceMin, @PathVariable("priceMax") String priceMax) {
+		double temp;
+		double moneyMin = Double.parseDouble(priceMin);
+		double moneyMax = Double.parseDouble(priceMax);
+		if(moneyMax<moneyMin) {
+			temp = moneyMax;
+			moneyMax = moneyMin;
+			moneyMin = temp;
+		}
+		List<ProductDTO> products = productService.getProductbyPrice(moneyMin, moneyMax);
 		return ResponseEntity.ok(products);
 	}
 	@PostMapping

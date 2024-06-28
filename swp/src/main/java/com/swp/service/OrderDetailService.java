@@ -12,5 +12,4 @@ public interface OrderDetailService {
 	OrderDetailDTO getOrderDetailbyBoth(String ordersId, String productsId);
 	OrderDetailDTO addOrderDetail(OrderDetailDTO dto);
 	Order_Detail updateOrderDetail(String ordersId, String productsId,Order_Detail detail);
-	void deleteOrderDetail(String id);
 }
