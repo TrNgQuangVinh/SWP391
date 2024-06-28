@@ -6,28 +6,32 @@ import com.swp.entity.Product;
 public class ProductMapper {
 	public static ProductDTO mapToProductDTO(Product prod) {
 		return new ProductDTO(
-				prod.getProductID(),
+				prod.getProductId(),
 				prod.getProductName(),
 				prod.getProductSize(),
 				prod.getProductPrice(),
 				prod.getQuantity(),
-				prod.getCategoryID(),
-				prod.getDiamondID(),
-				prod.getShellID(),
-				prod.getAccountID()
+				prod.getCategoryId(),
+				prod.getDiamondId(),
+				prod.getShellId(),
+				prod.getAccountId(),
+				prod.getDescription(),
+				prod.getImageLink()
 				);
 	}
 	public static Product mapToProduct(ProductDTO prodDTO) {
 		return new Product(
-				prodDTO.getProductID(),
+				prodDTO.getProductId(),
 				prodDTO.getProductName(),
 				prodDTO.getProductSize(),
 				prodDTO.getProductPrice(),
 				prodDTO.getQuantity(),
-				prodDTO.getCategoryID(),
-				prodDTO.getDiamondID(),
-				prodDTO.getShellID(),
-				prodDTO.getAccountID()
+				prodDTO.getCategoryId(),
+				prodDTO.getDiamondId(),
+				prodDTO.getShellId(),
+				prodDTO.getAccountId(),
+				prodDTO.getDescription(),
+				prodDTO.getImageLink()
 				);
 	}
 }

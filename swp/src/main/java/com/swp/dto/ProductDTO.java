@@ -1,10 +1,5 @@
 package com.swp.dto;
 
-import com.swp.entity.Category;
-import com.swp.entity.Diamond;
-import com.swp.entity.Shell;
-import com.swp.entity.User;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,13 +10,15 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ProductDTO {
-	private String ProductID;
+	private String ProductId;
 	private String ProductName;
 	private int ProductSize;
 	private float ProductPrice;
 	private int Quantity;
-    private String CategoryID;
-	private String DiamondID;
-	private String ShellID;
-	private String AccountID;
+    private String categoryId;
+	private String diamondId;
+	private String shellId;
+	private String accountId;
+	private String Description;
+	private String ImageLink;
 }

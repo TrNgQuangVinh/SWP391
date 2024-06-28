@@ -42,13 +42,13 @@ public class ProductServiceImpl implements ProductService{
 	}
 	
 	@Override
-	public ProductDTO getProductbyCategory(String categoryid) {
-		Product products = prodRepo.findByCategoryId(categoryid);
+	public List<ProductDTO>getProductbyCategory(String categoryid) {
+		List<Product> products = prodRepo.findByCategoryId(categoryid);
 		if(products == null) {
 			throw new ProductNotFoundException("Invalid Category");
 		}
-		//return products.stream().map((product) -> ProductMapper.mapToProductDTO(product)).collect(Collectors.toList());
-		return ProductMapper.mapToProductDTO(products);
+		return products.stream().map((product) -> ProductMapper.mapToProductDTO(product)).collect(Collectors.toList());
+		//return ProductMapper.mapToProductDTO(products);
 	}
 
 	@Override
@@ -62,18 +62,19 @@ public class ProductServiceImpl implements ProductService{
 	@Override
 	public Product updateProduct(String id, Product product) {
 		Product prod = prodRepo.findById(id)
-				.orElseThrow(()-> new ProductNotFoundException("Product does not exist with this id:" + id));
-		prod.setCategoryID(product.getCategoryID());
-		prod.setDiamondID(product.getDiamondID());
-		prod.setProductID(product.getProductID());
+				.orElseThrow();
+		prod.setCategoryId(product.getCategoryId());
+		prod.setDiamondId(product.getDiamondId());
+		prod.setProductId(product.getProductId());
 		prod.setProductName(product.getProductName());
 		prod.setProductPrice(product.getProductPrice());
 		prod.setProductSize(product.getProductSize());
 		prod.setQuantity(product.getQuantity());
-		prod.setShellID(product.getShellID());
-		prod.setAccountID(product.getAccountID());
+		prod.setShellId(product.getShellId());
+		prod.setAccountId(product.getAccountId());
+		prod.setDescription(product.getDescription());
+		prod.setImageLink(product.getImageLink());
 		Product updatedProd = prodRepo.save(prod);
-		//return ProductMapper.mapToProductDTO(updatedProd);
 		return updatedProd;
 	}
 
@@ -83,6 +84,46 @@ public class ProductServiceImpl implements ProductService{
 				.orElseThrow(()-> new ProductNotFoundException("Product does not exist with this id:" + id));
 		prodRepo.deleteById(id);
 		
+	}
+
+	@Override
+	public List<ProductDTO> getProductbyDiamond(String diamondid) {
+		List<Product> products = prodRepo.findByDiamond(diamondid);
+		if(products == null) {
+			throw new ProductNotFoundException("Invalid Diamond");
+		}
+		return products.stream().map((product) -> ProductMapper.mapToProductDTO(product)).collect(Collectors.toList());
+//		return ProductMapper.mapToProductDTO(products);
+	}
+
+	@Override
+	public List<ProductDTO> getProductbyShell(String shellid) {
+		List<Product> products = prodRepo.findByShell(shellid);
+		if(products == null) {
+			throw new ProductNotFoundException("Invalid Shell");
+		}
+		return products.stream().map((product) -> ProductMapper.mapToProductDTO(product)).collect(Collectors.toList());
+//		return ProductMapper.mapToProductDTO(products);
+	}
+
+	@Override
+	public List<ProductDTO> getProductbyQuantity(int quantity) {
+		List<Product> products = prodRepo.findByQuantity(quantity);
+		if(products == null) {
+			throw new ProductNotFoundException("Invalid Quantity");
+		}
+		return products.stream().map((product) -> ProductMapper.mapToProductDTO(product)).collect(Collectors.toList());
+//		return ProductMapper.mapToProductDTO(products);
+	}
+
+	@Override
+	public List<ProductDTO> getProductbyPrice(double price) {
+		List<Product> products = prodRepo.findByPrice(price);
+		if(products == null) {
+			throw new ProductNotFoundException("Invalid Price");
+		}
+		return products.stream().map((product) -> ProductMapper.mapToProductDTO(product)).collect(Collectors.toList());
+//		return ProductMapper.mapToProductDTO(products);
 	}
 
 

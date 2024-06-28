@@ -1,6 +1,8 @@
 package com.swp.entity;
 
+import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -9,6 +11,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -25,40 +28,45 @@ import lombok.Setter;
 public class Product {
 	@Id
 	@Column(name = "ProductID")
-	private String ProductID;
+	private String productId;
 	@Column
-	private String ProductName;
+	private String productName;
 	@Column
-	private int ProductSize;
+	private int productSize;
 	@Column
-	private float ProductPrice;
+	private float productPrice;
 	@Column
-	private int Quantity;
+	private int quantity;
+	@Column
+	private String description;
+	@Column
+	private String imageLink;
 	@JsonIgnore
 //	@ManyToOne(fetch = FetchType.EAGER)
 	
-	private String CategoryID;
+	private String categoryId;
 	@JsonIgnore
 //	@ManyToOne(fetch = FetchType.EAGER)
 	
-	private String DiamondID;
+	private String diamondId;
 	@JsonIgnore
 //	@ManyToOne(fetch = FetchType.EAGER)
 	
-	private String ShellID;
+	private String shellId;
 	@JsonIgnore
-	private String AccountID;
+	@Column(name = "AccountID")
+	private String accountId;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "AccountID", referencedColumnName="AccountID")
-	@JoinColumn(name = "CategoryID", referencedColumnName="CategoryID")
-	@JoinColumn(name = "DiamondID", referencedColumnName="DiamondID")
-	@JoinColumn(name = "ShellID", referencedColumnName="ShellID")
+	@JoinColumn(name = "AccountId", referencedColumnName="AccountID")
+	@JoinColumn(name = "CategoryId", referencedColumnName="categoryId")
+	@JoinColumn(name = "DiamondId", referencedColumnName="DiamondID")
+	@JoinColumn(name = "ShellId", referencedColumnName="ShellID")
 	
 	@Override
 	public int hashCode() {
-		return Objects.hash(ProductID, ProductName, ProductPrice, ProductSize, Quantity, CategoryID, DiamondID, ShellID,
-				AccountID);
+		return Objects.hash(accountId, categoryId, description, diamondId, imageLink, productId, productName,
+				productPrice, productSize, quantity, shellId);
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -69,17 +77,25 @@ public class Product {
 		if (getClass() != obj.getClass())
 			return false;
 		Product other = (Product) obj;
-		return Objects.equals(ProductID, other.ProductID) && Objects.equals(ProductName, other.ProductName)
-				&& Float.floatToIntBits(ProductPrice) == Float.floatToIntBits(other.ProductPrice)
-				&& ProductSize == other.ProductSize && Quantity == other.Quantity
-				&& Objects.equals(CategoryID, other.CategoryID) && Objects.equals(DiamondID, other.DiamondID)
-				&& Objects.equals(ShellID, other.ShellID) && Objects.equals(AccountID, other.AccountID);
+		return Objects.equals(accountId, other.accountId) && Objects.equals(categoryId, other.categoryId)
+				&& Objects.equals(description, other.description) && Objects.equals(diamondId, other.diamondId)
+				&& Objects.equals(imageLink, other.imageLink) && Objects.equals(productId, other.productId)
+				&& Objects.equals(productName, other.productName)
+				&& Float.floatToIntBits(productPrice) == Float.floatToIntBits(other.productPrice)
+				&& productSize == other.productSize && quantity == other.quantity
+				&& Objects.equals(shellId, other.shellId);
 	}
 	@Override
 	public String toString() {
-		return "Product [ProductID=" + ProductID + ", ProductName=" + ProductName + ", ProductSize=" + ProductSize
-				+ ", ProductPrice=" + ProductPrice + ", Quantity=" + Quantity + ", CategoryID=" + CategoryID
-				+ ", DiamondID=" + DiamondID + ", ShellID=" + ShellID + ", accountId=" + AccountID + "]";
+		return "Product [productId=" + productId + ", productName=" + productName + ", productSize=" + productSize
+				+ ", productPrice=" + productPrice + ", quantity=" + quantity + ", description=" + description
+				+ ", imageLink=" + imageLink + ", categoryId=" + categoryId + ", diamondId=" + diamondId + ", shellId="
+				+ shellId + ", accountId=" + accountId + "]";
 	}
+	
+	
+	
+	
+	
 	
 }

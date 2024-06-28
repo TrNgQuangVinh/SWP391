@@ -26,24 +26,24 @@ public class Diamond {
 	@Id
 	@Column(name = "DiamondID")
 	private String diamondId;
-	@Column(name = "CaratWeight")
+	@Column
 	private float caratWeight;
-	@Column(name = "Color")
+	@Column
 	private String color;
-	@Column(name = "Cut")
+	@Column
 	private String cut;
-	@Column(name = "Clarity")
+	@Column
 	private String clarity;
-	@Column(name = "Price")
+	@Column
 	private float price;
-	@Column(name = "Quantity")
+	@Column
 	private int quantity;
 //	@JsonIgnore
-	@OneToMany(mappedBy = "DiamondID", fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "diamondId", fetch = FetchType.LAZY)
 	//private List<Product> products;
 	@Override
 	public int hashCode() {
-		return Objects.hash(caratWeight, clarity, color, cut, diamondId, price,quantity);
+		return Objects.hash(caratWeight, clarity, color, cut, diamondId, price,/* products,*/quantity);
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -58,7 +58,7 @@ public class Diamond {
 				&& Objects.equals(clarity, other.clarity) && Objects.equals(color, other.color)
 				&& Objects.equals(cut, other.cut) && Objects.equals(diamondId, other.diamondId)
 				&& Float.floatToIntBits(price) == Float.floatToIntBits(other.price)
-				/*&& Objects.equals(products, other.products)*/ && quantity == other.quantity;
+				&& /*Objects.equals(products, other.products) &&*/ quantity == other.quantity;
 	}
 	@Override
 	public String toString() {
