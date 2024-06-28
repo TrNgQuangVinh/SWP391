@@ -21,14 +21,14 @@ import lombok.Setter;
 @Table(name = "Categories")
 public class Category {
 	@Id
-	private String CategoryID;
+	private String CategoryId;
 	private String CategoryName;
 	@OneToMany(mappedBy = "categoryId", fetch = FetchType.LAZY)
-	//private List<Product> products;
+	private List<Product> products;
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(CategoryID, CategoryName/*, products*/);
+		return Objects.hash(CategoryId, CategoryName, products);
 	}
 
 	@Override
@@ -40,13 +40,13 @@ public class Category {
 		if (getClass() != obj.getClass())
 			return false;
 		Category other = (Category) obj;
-		return Objects.equals(CategoryID, other.CategoryID) && Objects.equals(CategoryName, other.CategoryName)
-				/*&& Objects.equals(products, other.products)*/;
+		return Objects.equals(CategoryId, other.CategoryId) && Objects.equals(CategoryName, other.CategoryName)
+				&& Objects.equals(products, other.products);
 	}
 
 	@Override
 	public String toString() {
-		return "Category [CategoryId=" + CategoryID + ", CategoryName=" + CategoryName + /*", products=" + products + */ "]";
+		return "Category [CategoryId=" + CategoryId + ", CategoryName=" + CategoryName + ", products=" + products + "]";
 	}
 
 }
