@@ -15,7 +15,6 @@ public class ProductMapper {
 				prod.getDiamondId(),
 				prod.getShellId(),
 				prod.getAccountId(),
-				prod.getMaterialId(),
 				prod.getDescription(),
 				prod.getImageLink()
 				);
@@ -31,7 +30,6 @@ public class ProductMapper {
 				prodDTO.getDiamondId(),
 				prodDTO.getShellId(),
 				prodDTO.getAccountId(),
-				prodDTO.getMaterialId(),
 				prodDTO.getDescription(),
 				prodDTO.getImageLink()
 				);
