@@ -59,4 +59,10 @@ public class CartServiceImplement implements CartService {
 		repo.delete(findCart);
 	}
 
+	@Override
+	public List<CartDTO> getCartsByUserId(String id) {
+		List<Cart> carts = repo.findCartsById(id);
+		return carts.stream().map((cart) -> CartMapper.mapToCartDTO(cart)).collect(Collectors.toList());
+	}
+
 }

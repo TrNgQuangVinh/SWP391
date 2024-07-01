@@ -19,7 +19,6 @@ public class ProductDTO {
 	private String diamondId;
 	private String shellId;
 	private String accountId;
-	private String materialId;
 	private String Description;
 	private String ImageLink;
 }

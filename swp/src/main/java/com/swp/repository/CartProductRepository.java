@@ -13,8 +13,8 @@ import com.swp.entity.CartProductID;
 @Repository
 public interface CartProductRepository extends JpaRepository<CartProduct, CartProductID> {
 	Optional<CartProduct> findById(CartProductID id);
-	@Query(nativeQuery = true, value = "SELECT cart.* FROM [Cart_Products] cart INNER JOIN Products p ON cart.ProductID = p.ProductID WHERE cart.CartID = :CartID")
+	@Query(nativeQuery = true, value = "SELECT cart.* FROM [Carts_Products] cart INNER JOIN Products p ON cart.ProductID = p.ProductID WHERE cart.CartID = :CartID")
 	List<CartProduct> findCartProductsById(@Param("CartID")String cartId);
-	@Query(nativeQuery = true, value = "SELECT cart.* FROM [Cart_Products] cart INNER JOIN Products p ON cart.ProductID = p.ProductID WHERE cart.CartID = :CartID and cart.ProductID = :ProductID")
+	@Query(nativeQuery = true, value = "SELECT cart.* FROM [Carts_Products] cart INNER JOIN Products p ON cart.ProductID = p.ProductID WHERE cart.CartID = :CartID and cart.ProductID = :ProductID")
 	CartProduct findCartProductsByBoth(@Param("CartID")String cartId,@Param("ProductID")String prodId);
 }

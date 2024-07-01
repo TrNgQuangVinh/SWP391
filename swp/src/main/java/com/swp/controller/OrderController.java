@@ -43,4 +43,8 @@ public class OrderController {
 		Order updateOrder = service.updateOrder(id, order);
 		return ResponseEntity.ok(updateOrder);
 	}
+	@GetMapping("/get/user/{id}")
+	public ResponseEntity<List<OrderDTO>> getOrdesByUser(@PathVariable("id")String id){
+		return ResponseEntity.ok(service.getOrdersByUserId(id));
+	}
 }
