@@ -11,4 +11,5 @@ public interface CartService {
 	CartDTO addCart(CartDTO dto);
 	Cart updateCart(String cartId, Cart toUpdate);
 	void deleteCart(String toBeDeleted);
+	List<CartDTO> getCartsByUserId(String id);
 }

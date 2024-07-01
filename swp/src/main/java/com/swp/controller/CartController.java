@@ -58,4 +58,8 @@ public class CartController {
 		service.deleteCart(id);
 		return ResponseEntity.ok("Cart with this id " + id + " has been deleted");
 	}
+	@GetMapping("/get/user/{id}")
+	public ResponseEntity<List<CartDTO>> getCartsByUser(@PathVariable("id") String userId){
+		return ResponseEntity.ok(service.getCartsByUserId(userId));
+	}
 }
