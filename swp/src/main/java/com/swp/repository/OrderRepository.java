@@ -11,6 +11,6 @@ import com.swp.entity.Order;
 
 @Repository
 public interface OrderRepository extends JpaRepository<Order, String> {
-	@Query(nativeQuery = true, value = "SELECT order.* FROM [Orders] order WHERE order.AccountID = :AccountID")
+	@Query(nativeQuery = true, value = "SELECT [order].* FROM [Orders] [order] WHERE [order].AccountID = :AccountID")
 	List<Order> findOrdersByUserID(@Param("AccountID")String userId);
 }
