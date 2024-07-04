@@ -51,7 +51,7 @@ public class Product {
 	@JsonIgnore
 	@Column(name = "AccountID")
 	private String accountId;
-	
+	@Column(name = "MaterialID")
 	private String materialId;
 	
 	@ManyToOne(fetch = FetchType.EAGER)

@@ -8,7 +8,7 @@ public class CartProductMapper {
 		return new CartProductDTO(
 				cart.getCartId(),
 				cart.getProductId(),
-				cart.getProdName(),
+				cart.getProductName(),
 				cart.getQuantity(),
 				cart.getPrice()
 				);

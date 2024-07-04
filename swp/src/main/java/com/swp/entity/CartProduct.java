@@ -26,7 +26,7 @@ public class CartProduct {
 	@Id
 	@Column(name = "ProductID")
 	private String productId;
-	private String prodName;
+	private String productName;
 	private int quantity;
 	private float price;
 	@ManyToOne
@@ -41,7 +41,7 @@ public class CartProduct {
 		super();
 		this.cartId = cartId;
 		this.productId = productId;
-		this.prodName = prodName;
+		this.productName = prodName;
 		this.quantity = quantity;
 		this.price = price;
 	}

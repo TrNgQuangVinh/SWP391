@@ -48,6 +48,7 @@ public class CartServiceImplement implements CartService {
 				.orElseThrow(() -> new CartNotFoundException("Cart does not exist with this id: "+cartId));
 		findCart.setProducts(toUpdate.getProducts());
 		findCart.setTotalPrice(toUpdate.getTotalPrice());
+		findCart.setProducts(toUpdate.getProducts());
 		Cart updated = repo.save(findCart);
 		return updated;
 	}

@@ -28,7 +28,7 @@ public class Cart {
 	private float totalPrice;
 
 	@ManyToMany
-	@JoinTable(name = "Cart_Products", // The name of the intermediate table
+	@JoinTable(name = "Carts_Products", // The name of the intermediate table
 			joinColumns = @JoinColumn(name = "CartID"), // The column name in Cart_Products that refers to Carts's
 														// primary key
 			inverseJoinColumns = @JoinColumn(name = "ProductID") // The column name in Cart_Products that refers to

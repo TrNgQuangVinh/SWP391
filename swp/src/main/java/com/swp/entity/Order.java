@@ -1,7 +1,7 @@
 package com.swp.entity;
 
 import java.util.Set;
-
+import java.sql.Timestamp;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -28,6 +28,7 @@ public class Order {
 	private String accountId;
 	private float totalPrice;
 	private String address;
+	private Timestamp date;
 	private int statusId;
 	
 	@ManyToMany
