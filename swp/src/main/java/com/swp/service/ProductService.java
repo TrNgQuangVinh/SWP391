@@ -13,6 +13,7 @@ public interface ProductService {
 	List<ProductDTO> getProductbyShell(String shellid);
 	List<ProductDTO> getProductbyQuantity(int quantity);
 	List<ProductDTO> getProductbyPrice(double priceMin, double priceMax);
+	List<ProductDTO> getProductbyMaterial(String materialid);
 	ProductDTO addProduct(ProductDTO productDTO);
 	Product updateProduct(String id, Product product);
 	void deleteProduct(String id);

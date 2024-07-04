@@ -126,5 +126,14 @@ public class ProductServiceImpl implements ProductService{
 //		return ProductMapper.mapToProductDTO(products);
 	}
 
+	@Override
+	public List<ProductDTO> getProductbyMaterial(String materialid) {
+		List<Product> products = prodRepo.findByMaterial(materialid);
+		if(products == null) {
+			throw new ProductNotFoundException("Invalid Material");
+		}
+		return products.stream().map((product) -> ProductMapper.mapToProductDTO(product)).collect(Collectors.toList());
+	}
+
 
 }

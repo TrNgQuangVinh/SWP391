@@ -38,4 +38,10 @@ public interface ProductRepository extends JpaRepository<Product,String> {
 			+ "FROM Products p "
 			+ "WHERE p.ProductPrice >= :priceMin AND p.ProductPrice <= :priceMax", nativeQuery = true)
 	List<Product> findByPrice(@Param("priceMin")double priceMin, @Param("priceMax")double priceMax);
+	@Query(value="SELECT p.* "
+			+ "FROM Products p "
+			+ "INNER JOIN Material m "
+			+ "ON m.MaterialID = p.MaterialID "
+			+ "WHERE p.MaterialID = :material_id", nativeQuery = true)
+	List<Product> findByMaterial(@Param("material_id")String materialid);
 }
