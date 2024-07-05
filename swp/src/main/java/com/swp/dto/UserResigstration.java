@@ -7,13 +7,13 @@ public class UserResigstration {
 	private String username;
 	private String fullname;
 	private String password;
-	private int phonenumber;
+	private String phonenumber;
 	private String role;
 	private String address;
 	public UserResigstration() {
 		super();
 	}
-	public UserResigstration(String email, String username, String fullname, String password, int phonenumber,
+	public UserResigstration(String email, String username, String fullname, String password, String phonenumber,
 			String role, String address) {
 		super();
 		this.email = email;
@@ -48,10 +48,10 @@ public class UserResigstration {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public int getPhonenumber() {
+	public String getPhonenumber() {
 		return phonenumber;
 	}
-	public void setPhonenumber(int phonenumber) {
+	public void setPhonenumber(String phonenumber) {
 		this.phonenumber = phonenumber;
 	}
 	public String getRole() {

@@ -15,11 +15,11 @@ public class UserDTO {
 	private String fullname;
 	private String email;
 	private String password;
-	private int phonenumber;
+	private String phonenumber;
 	private String role;
 	private String address;
 
-	public UserDTO(String accountId, String username, String fullname, String email, String password, int phonenumber,
+	public UserDTO(String accountId, String username, String fullname, String email, String password, String phonenumber,
 			String role, String address) {
 		super();
 		this.accountId = accountId;
@@ -72,11 +72,11 @@ public class UserDTO {
 		this.password = password;
 	}
 
-	public int getPhonenumber() {
+	public String getPhonenumber() {
 		return phonenumber;
 	}
 
-	public void setPhonenumber(int phonenumber) {
+	public void setPhonenumber(String phonenumber) {
 		this.phonenumber = phonenumber;
 	}
 

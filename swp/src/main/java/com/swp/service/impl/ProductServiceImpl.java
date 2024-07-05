@@ -1,6 +1,5 @@
 package com.swp.service.impl;
 
-
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -18,16 +17,16 @@ import com.swp.repository.ProductRepository;
 import com.swp.service.ProductService;
 
 @Service
-public class ProductServiceImpl implements ProductService{
-	
+public class ProductServiceImpl implements ProductService {
+
 	@Autowired
 	private ProductRepository prodRepo;
-	
+
 	public ProductServiceImpl(ProductRepository prodRepo) {
 		super();
 		this.prodRepo = prodRepo;
 	}
-	
+
 	@Override
 	public List<ProductDTO> getProduct() {
 		List<Product> products = prodRepo.findAll();
@@ -37,18 +36,18 @@ public class ProductServiceImpl implements ProductService{
 	@Override
 	public ProductDTO getProductbyID(String id) {
 		Product product = prodRepo.findById(id)
-		.orElseThrow(()->new ProductNotFoundException("Product does not exist with this id:" + id));
+				.orElseThrow(() -> new ProductNotFoundException("Product does not exist with this id:" + id));
 		return ProductMapper.mapToProductDTO(product);
 	}
-	
+
 	@Override
-	public List<ProductDTO>getProductbyCategory(String categoryid) {
+	public List<ProductDTO> getProductbyCategory(String categoryid) {
 		List<Product> products = prodRepo.findByCategoryId(categoryid);
-		if(products == null) {
+		if (products == null) {
 			throw new ProductNotFoundException("Invalid Category");
 		}
 		return products.stream().map((product) -> ProductMapper.mapToProductDTO(product)).collect(Collectors.toList());
-		//return ProductMapper.mapToProductDTO(products);
+		// return ProductMapper.mapToProductDTO(products);
 	}
 
 	@Override
@@ -56,13 +55,12 @@ public class ProductServiceImpl implements ProductService{
 		Product product = ProductMapper.mapToProduct(productDTO);
 		Product savedProduct = prodRepo.save(product);
 		return ProductMapper.mapToProductDTO(savedProduct);
-		
+
 	}
 
 	@Override
 	public Product updateProduct(String id, Product product) {
-		Product prod = prodRepo.findById(id)
-				.orElseThrow();
+		Product prod = prodRepo.findById(id).orElseThrow();
 		prod.setCategoryId(product.getCategoryId());
 		prod.setDiamondId(product.getDiamondId());
 		prod.setProductId(product.getProductId());
@@ -81,15 +79,15 @@ public class ProductServiceImpl implements ProductService{
 	@Override
 	public void deleteProduct(String id) {
 		Product prod = prodRepo.findById(id)
-				.orElseThrow(()-> new ProductNotFoundException("Product does not exist with this id:" + id));
+				.orElseThrow(() -> new ProductNotFoundException("Product does not exist with this id:" + id));
 		prodRepo.deleteById(id);
-		
+
 	}
 
 	@Override
 	public List<ProductDTO> getProductbyDiamond(String diamondid) {
 		List<Product> products = prodRepo.findByDiamond(diamondid);
-		if(products == null) {
+		if (products == null) {
 			throw new ProductNotFoundException("Invalid Diamond");
 		}
 		return products.stream().map((product) -> ProductMapper.mapToProductDTO(product)).collect(Collectors.toList());
@@ -99,7 +97,7 @@ public class ProductServiceImpl implements ProductService{
 	@Override
 	public List<ProductDTO> getProductbyShell(String shellid) {
 		List<Product> products = prodRepo.findByShell(shellid);
-		if(products == null) {
+		if (products == null) {
 			throw new ProductNotFoundException("Invalid Shell");
 		}
 		return products.stream().map((product) -> ProductMapper.mapToProductDTO(product)).collect(Collectors.toList());
@@ -109,7 +107,7 @@ public class ProductServiceImpl implements ProductService{
 	@Override
 	public List<ProductDTO> getProductbyQuantity(int quantity) {
 		List<Product> products = prodRepo.findByQuantity(quantity);
-		if(products == null) {
+		if (products == null) {
 			throw new ProductNotFoundException("Invalid Quantity");
 		}
 		return products.stream().map((product) -> ProductMapper.mapToProductDTO(product)).collect(Collectors.toList());
@@ -119,7 +117,7 @@ public class ProductServiceImpl implements ProductService{
 	@Override
 	public List<ProductDTO> getProductbyPrice(double priceMin, double priceMax) {
 		List<Product> products = prodRepo.findByPrice(priceMin, priceMax);
-		if(products == null) {
+		if (products == null) {
 			throw new ProductNotFoundException("Invalid Price");
 		}
 		return products.stream().map((product) -> ProductMapper.mapToProductDTO(product)).collect(Collectors.toList());
@@ -129,11 +127,10 @@ public class ProductServiceImpl implements ProductService{
 	@Override
 	public List<ProductDTO> getProductbyMaterial(String materialid) {
 		List<Product> products = prodRepo.findByMaterial(materialid);
-		if(products == null) {
+		if (products == null) {
 			throw new ProductNotFoundException("Invalid Material");
 		}
 		return products.stream().map((product) -> ProductMapper.mapToProductDTO(product)).collect(Collectors.toList());
 	}
-
 
 }

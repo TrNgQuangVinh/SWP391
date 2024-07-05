@@ -76,6 +76,7 @@ public class ProductController {
 		List<ProductDTO> products = productService.getProductbyShell(id);
 		return ResponseEntity.ok(products);
 	}
+	
 	@GetMapping("/get/material/{id}")
 	public ResponseEntity<List<ProductDTO>> getProductByMaterial(@PathVariable("id") String id) {
 		//Category category = new Category(id, name, null);
@@ -86,6 +87,7 @@ public class ProductController {
 		List<ProductDTO> products = productService.getProductbyMaterial(id);
 		return ResponseEntity.ok(products);
 	}
+	
 	@GetMapping("/get/quantity/{quantity}")
 	public ResponseEntity<List<ProductDTO>> getProductByQuantity(@PathVariable("quantity") String quantity) {
 		int quant = Integer.parseInt(quantity);
