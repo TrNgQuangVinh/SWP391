@@ -241,6 +241,7 @@ CREATE TABLE [dbo].[Carts_Products](
 	[CartID] [varchar](3) NOT NULL,
 	[ProductID] [varchar](6) NOT NULL,
 	[ProductName] [varchar](30) NULL,
+	[ProductSize] [int] NULL,
 	[Quantity] [int] NOT NULL,
 	[Price] [real] NULL,
 PRIMARY KEY CLUSTERED 
@@ -335,6 +336,7 @@ GO
 CREATE TABLE [dbo].[Order Detail](
 	[OrdersID] [varchar](6) NOT NULL,
 	[ProductsID] [varchar](6) NOT NULL,
+	[ProductsSize] [int] NULL,
 	[Quantity] [int] NULL,
 	[Price] [real] NULL,
 PRIMARY KEY CLUSTERED 

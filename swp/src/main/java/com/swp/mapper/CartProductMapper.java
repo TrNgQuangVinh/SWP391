@@ -9,6 +9,7 @@ public class CartProductMapper {
 				cart.getCartId(),
 				cart.getProductId(),
 				cart.getProductName(),
+				cart.getProductSize(),
 				cart.getQuantity(),
 				cart.getPrice()
 				);
@@ -19,6 +20,7 @@ public class CartProductMapper {
 				dto.getCartId(),
 				dto.getProductId(),
 				dto.getProdName(),
+				dto.getProductSize(),
 				dto.getQuantity(),
 				dto.getPrice()
 				);

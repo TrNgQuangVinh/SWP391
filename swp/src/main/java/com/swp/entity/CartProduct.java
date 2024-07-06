@@ -27,6 +27,7 @@ public class CartProduct {
 	@Column(name = "ProductID")
 	private String productId;
 	private String productName;
+	private int productSize;
 	private int quantity;
 	private float price;
 	@ManyToOne
@@ -37,11 +38,12 @@ public class CartProduct {
 	@JoinColumn(name = "ProductID", referencedColumnName = "ProductID", insertable = false, updatable = false)
 	private Product product;
 
-	public CartProduct(String cartId, String productId, String prodName, int quantity, float price) {
+	public CartProduct(String cartId, String productId, String prodName, int productSize , int quantity, float price) {
 		super();
 		this.cartId = cartId;
 		this.productId = productId;
 		this.productName = prodName;
+		this.productSize = productSize;
 		this.quantity = quantity;
 		this.price = price;
 	}

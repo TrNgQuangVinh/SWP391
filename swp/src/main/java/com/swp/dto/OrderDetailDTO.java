@@ -15,6 +15,7 @@ import lombok.Setter;
 public class OrderDetailDTO {
 	private String ordersId;
 	private String productsId;
+	private int productsSize;
 	private int quantity;
 	private float price;
 

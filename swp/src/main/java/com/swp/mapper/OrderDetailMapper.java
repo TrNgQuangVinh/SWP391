@@ -8,6 +8,7 @@ public class OrderDetailMapper {
 		return new OrderDetailDTO(
 				od.getOrdersId(),
 				od.getProductsId(),
+				od.getProductsSize(),
 				od.getQuantity(),
 				od.getPrice()
 				);
@@ -17,6 +18,7 @@ public class OrderDetailMapper {
 		return new Order_Detail(
 				dto.getOrdersId(),
 				dto.getProductsId(),
+				dto.getProductsSize(),
 				dto.getQuantity(),
 				dto.getPrice()
 				);

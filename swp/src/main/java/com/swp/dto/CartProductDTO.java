@@ -17,6 +17,7 @@ public class CartProductDTO {
 	private String cartId;
 	private String productId;
 	private String prodName;
+	private int productSize;
 	private int quantity;
 	private float price;
 
