@@ -19,12 +19,16 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import static org.springframework.security.config.Customizer.withDefaults;
-
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import com.swp.service.UserService;
 
 @Configuration
 @EnableWebSecurity
-public class SecurityConfiguration  {
+public class SecurityConfiguration implements WebMvcConfigurer {
 	private  UserService userService;
     
 
@@ -88,5 +92,14 @@ public class SecurityConfiguration  {
 	public PasswordEncoder encoder() {
 	    return new BCryptPasswordEncoder();
 	}
+	
+	@Override
+    public void addCorsMappings(CorsRegistry registry) {
+        registry.addMapping("/**")
+                .allowedOrigins("*") // Specify allowed origins
+                .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS", "HEAD", "PATCH")
+                .allowCredentials(true)
+                .allowedHeaders("Origin", "X-Requested-With", "Content-Type", "Accept", "Authorization");
+    }
 
 }
