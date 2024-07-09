@@ -45,7 +45,6 @@ public class ShellServiceImpl implements ShellService {
 		Shell shl = shellRepo.findById(id)
 				.orElseThrow();
 		shl.setShellId(shell.getShellId());
-		shl.setMaterialID(shell.getMaterialID());
 		shl.setName(shell.getName());
 		shl.setQuantity(shell.getQuantity());
 		shl.setShellPrice(shell.getShellPrice());
