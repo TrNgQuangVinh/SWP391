@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.swp.dto.OrderDetailDTO;
-import com.swp.entity.Order_Detail;
+import com.swp.entity.OrderDetail;
 import com.swp.service.OrderDetailService;
 
 @CrossOrigin(origins = "*")
@@ -43,8 +43,8 @@ public class OrderDetailController {
 		return new ResponseEntity<>(newDetail,HttpStatus.CREATED);
 	}
 	@PutMapping("/update")
-	public ResponseEntity<Order_Detail> updateDetail(@RequestParam String ordersId,@RequestParam String prodId,@RequestBody Order_Detail detail){
-		Order_Detail needUpdate = service.updateOrderDetail(ordersId, prodId, detail);
+	public ResponseEntity<OrderDetail> updateDetail(@RequestParam String ordersId,@RequestParam String prodId,@RequestBody OrderDetail detail){
+		OrderDetail needUpdate = service.updateOrderDetail(ordersId, prodId, detail);
 		return ResponseEntity.ok(needUpdate);
 	}
 }

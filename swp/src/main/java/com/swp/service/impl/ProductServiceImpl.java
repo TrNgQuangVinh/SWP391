@@ -52,7 +52,7 @@ public class ProductServiceImpl implements ProductService {
 
 	@Override
 	public ProductDTO addProduct(ProductDTO productDTO) {
-		Product product = ProductMapper.mapToProduct(productDTO);
+		Product product = ProductMapper.mapToProduct2(productDTO);
 		Product savedProduct = prodRepo.save(product);
 		return ProductMapper.mapToProductDTO(savedProduct);
 

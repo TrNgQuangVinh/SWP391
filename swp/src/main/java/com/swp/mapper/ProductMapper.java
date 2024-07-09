@@ -36,4 +36,20 @@ public class ProductMapper {
 				prodDTO.getImageLink()
 				);
 	}
+	public static Product mapToProduct2(ProductDTO prodDTO) {
+		return new Product(
+				prodDTO.getAccountId(),
+				prodDTO.getCategoryId(),
+				prodDTO.getDescription(),
+				prodDTO.getDiamondId(),
+				prodDTO.getImageLink(),
+				prodDTO.getMaterialId(),
+				prodDTO.getProductId(),
+				prodDTO.getProductName(),
+				prodDTO.getProductPrice(),
+				prodDTO.getProductSize(),
+				prodDTO.getQuantity(),
+				prodDTO.getShellId()
+				);
+	}
 }

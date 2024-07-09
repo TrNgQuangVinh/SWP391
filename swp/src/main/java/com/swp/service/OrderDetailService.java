@@ -3,7 +3,7 @@ package com.swp.service;
 import java.util.List;
 
 import com.swp.dto.OrderDetailDTO;
-import com.swp.entity.Order_Detail;
+import com.swp.entity.OrderDetail;
 
 public interface OrderDetailService {
 	List<OrderDetailDTO> getAllOrderDetail();
@@ -11,5 +11,5 @@ public interface OrderDetailService {
 	List<OrderDetailDTO> getOrdersbyProductsId(String productsId);
 	OrderDetailDTO getOrderDetailbyBoth(String ordersId, String productsId);
 	OrderDetailDTO addOrderDetail(OrderDetailDTO dto);
-	Order_Detail updateOrderDetail(String ordersId, String productsId,Order_Detail detail);
+	OrderDetail updateOrderDetail(String ordersId, String productsId,OrderDetail detail);
 }

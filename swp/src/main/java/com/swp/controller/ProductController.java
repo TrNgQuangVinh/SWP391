@@ -107,12 +107,12 @@ public class ProductController {
 		List<ProductDTO> products = productService.getProductbyPrice(moneyMin, moneyMax);
 		return ResponseEntity.ok(products);
 	}
-	@PostMapping
+	@PostMapping("/add")
 	public ResponseEntity<ProductDTO> createProduct(@RequestBody ProductDTO productDTO) {
 		ProductDTO savedProd = productService.addProduct(productDTO);
 		return new ResponseEntity<>(savedProd, HttpStatus.CREATED);
 	}
-	@PutMapping("{id}")
+	@PutMapping("/update/{id}")
 	public ResponseEntity<Product> updateProduct(@PathVariable("id") String productId, @RequestBody Product product) {
 		Product upProduct = productService.updateProduct(productId, product);
 		return ResponseEntity.ok(upProduct);
