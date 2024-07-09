@@ -27,7 +27,7 @@ public class OrderDetail {
     @Column(name = "ProductsID")
 	private String productsId;
 	@Column(name = "ProductsSize")
-	private int productsSize;
+	private float productsSize;
 	private int quantity;
 	private float price;
 	@ManyToOne
@@ -42,7 +42,7 @@ public class OrderDetail {
 		return "Order_Detail [odersId=" + ordersId + ", productsId=" + productsId + ", quantity=" + quantity + ", price="
 				+ price + "]";
 	}
-	public OrderDetail(String ordersId,String productsId, int productsSize, int quantity, float price) {
+	public OrderDetail(String ordersId,String productsId, float productsSize, int quantity, float price) {
 		this.ordersId = ordersId;
 		this.productsId = productsId;
 		this.productsSize = productsSize;
