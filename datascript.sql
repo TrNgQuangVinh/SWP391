@@ -265,5 +265,5 @@ INSERT INTO dbo.Products (ProductID ,CategoryID,ProductName,ProductSize,ProductP
 INSERT INTO dbo.Products (ProductID ,CategoryID,ProductName,ProductSize,ProductPrice,DiamondID,ShellID,AccountID,MaterialID,Quantity,Description,ImageLink) VALUES ('P0100','5','Sapphire 9 X 14 Mm And Diamond 9K Yellow Gold Pendant Necklace','406.4','14649166.6666667','76','2','AD001','5','4','The beautiful leaf design of this sapphire pendant and combination of gleaming yellow gold and sparkling diamonds creates a delicate, pretty necklace. The pendant features three small round cut sapphires which are claw set and held by yellow gold which contrast brilliantly with the collection of Premium Quality Diamonds.','https://thediamondstore.imgix.net/productimages/Z1010.jpg')
 GO
 
-INSERT [dbo].[Order Detail] ([OrdersID], [ProductsID], [Quantity], [Price]) VALUES (N'O0001', N'PO0001', 2, 197530.859)
+INSERT [dbo].[Order Detail] ([OrdersID], [ProductsID], [Quantity], [Price]) VALUES (N'O00001', N'P0001', 2, 197530.859)
 GO
