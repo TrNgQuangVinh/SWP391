@@ -61,4 +61,10 @@ public class OrderServiceImplement implements OrderService {
 		repo.delete(order);
 	}
 
+	@Override
+	public List<OrderDTO> getOrdersByUserId(String id) {
+		List<Order> orders = repo.findOrdersByUserID(id);
+		return orders.stream().map((order) -> OrderMapper.mapToOrderDTO(order)).collect(Collectors.toList());
+	}
+
 }

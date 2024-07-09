@@ -10,6 +10,7 @@ public class OrderMapper {
 				order.getAccountId(),
 				order.getTotalPrice(),
 				order.getAddress(),
+				order.getDate(),
 				order.getStatusId(),
 				order.getProducts()
 				);
@@ -21,6 +22,7 @@ public class OrderMapper {
 				odDTO.getAccountId(),
 				odDTO.getTotalPrice(),
 				odDTO.getAddress(),
+				odDTO.getDate(),
 				odDTO.getStatusId(),
 				odDTO.getProducts()
 				);

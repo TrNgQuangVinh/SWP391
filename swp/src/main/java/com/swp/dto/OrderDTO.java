@@ -1,5 +1,6 @@
 package com.swp.dto;
 
+import java.sql.Timestamp;
 import java.util.Set;
 
 import com.swp.entity.Product;
@@ -18,6 +19,7 @@ public class OrderDTO {
 	private String accountId;
 	private float totalPrice;
 	private String address;
+	private Timestamp date;
 	private int statusId;
 	private Set<Product> products;
 	@Override
