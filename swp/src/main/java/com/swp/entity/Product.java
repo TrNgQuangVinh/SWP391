@@ -17,7 +17,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
+//@AllArgsConstructor
 @Entity
 @Table(name = "Products")
 public class Product {
@@ -27,7 +27,7 @@ public class Product {
 	@Column
 	private String productName;
 	@Column
-	private int productSize;
+	private float productSize;
 	@Column
 	private float productPrice;
 	@Column
@@ -36,19 +36,15 @@ public class Product {
 	private String description;
 	@Column(name="ImageLink")
 	private String imageLink;
-	@JsonIgnore
 	// @ManyToOne(fetch = FetchType.EAGER)
 
 	private String categoryId;
-	@JsonIgnore
 	// @ManyToOne(fetch = FetchType.EAGER)
 	@Column(name = "DiamondID")
 	private String diamondId;
-	@JsonIgnore
 	// @ManyToOne(fetch = FetchType.EAGER)
 
 	private String shellId;
-	@JsonIgnore
 	@Column(name = "AccountID")
 	private String accountId;
 	@Column(name = "MaterialID")
@@ -56,7 +52,7 @@ public class Product {
 	
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "AccountId", referencedColumnName="AccountID")
-	@JoinColumn(name = "CategoryId", referencedColumnName="categoryId")
+	@JoinColumn(name = "CategoryId", referencedColumnName="CategoryId")
 	@JoinColumn(name = "DiamondId", referencedColumnName="DiamondID")
 	@JoinColumn(name = "ShellId", referencedColumnName="ShellID")
 	@JoinColumn(name = "MaterialId", referencedColumnName="MaterialID")	
@@ -70,7 +66,7 @@ public class Product {
 	}
 	
 	public Product(String accountId, String categoryId, String description, String diamondId, String imageLink, String materialId, String productId,
-			String productName, float productPrice, int productSize, int quatity, String shellId) {
+			String productName, float productPrice, float productSize, int quatity, String shellId) {
 		this.accountId = accountId;
 		this.categoryId = categoryId;
 		this.description = description;
