@@ -4,7 +4,7 @@ import com.swp.dto.ProductDTO;
 import com.swp.entity.Product;
 
 public class ProductMapper {
-	public static ProductDTO mapToProductDTO(Product prod) {
+	public static ProductDTO mapToProductDTO2(Product prod) {
 		return new ProductDTO(
 				prod.getProductId(),
 				prod.getProductName(),
@@ -20,7 +20,7 @@ public class ProductMapper {
 				prod.getImageLink()
 				);
 	}
-	public static Product mapToProduct(ProductDTO prodDTO) {
+	public static Product mapToProduct2(ProductDTO prodDTO) {
 		return new Product(
 				prodDTO.getProductId(),
 				prodDTO.getProductName(),
@@ -36,7 +36,7 @@ public class ProductMapper {
 				prodDTO.getImageLink()
 				);
 	}
-	public static Product mapToProduct2(ProductDTO prodDTO) {
+	public static Product mapToProduct(ProductDTO prodDTO) {
 		return new Product(
 				prodDTO.getAccountId(),
 				prodDTO.getCategoryId(),
@@ -50,6 +50,23 @@ public class ProductMapper {
 				prodDTO.getProductSize(),
 				prodDTO.getQuantity(),
 				prodDTO.getShellId()
+				);
+	}
+	
+	public static ProductDTO mapToProductDTO(Product prod) {
+		return new ProductDTO(
+				prod.getAccountId(),
+				prod.getCategoryId(),
+				prod.getDescription(),
+				prod.getDiamondId(),
+				prod.getImageLink(),
+				prod.getMaterialId(),
+				prod.getProductId(),
+				prod.getProductName(),
+				prod.getProductPrice(),
+				prod.getProductSize(),
+				prod.getQuantity(),
+				prod.getShellId()
 				);
 	}
 }

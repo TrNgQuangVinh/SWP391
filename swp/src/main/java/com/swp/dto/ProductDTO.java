@@ -8,11 +8,11 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
+//@AllArgsConstructor
 public class ProductDTO {
 	private String productId;
 	private String productName;
-	private int productSize;
+	private String productSize;
 	private float productPrice;
 	private int quantity;
 	private String description;
@@ -21,5 +21,21 @@ public class ProductDTO {
 	private String diamondId;
 	private String shellId;
 	private String accountId;
-	private String materialId;	
+	private String materialId;
+	
+	public ProductDTO(String accountId, String categoryId, String description, String diamondId, String imageLink, String materialId, String productId,
+			String productName, float productPrice, String productSize, int quatity, String shellId) {
+		this.accountId = accountId;
+		this.categoryId = categoryId;
+		this.description = description;
+		this.diamondId = diamondId;
+		this.imageLink = imageLink;
+		this.materialId = materialId;
+		this.productId = productId;
+		this.productName = productName;
+		this.productPrice = productPrice;
+		this.productSize = productSize;
+		this.quantity = quatity;
+		this.shellId = shellId;
+	}
 }
