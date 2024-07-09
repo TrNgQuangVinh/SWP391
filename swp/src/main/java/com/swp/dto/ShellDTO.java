@@ -11,7 +11,6 @@ import lombok.Setter;
 @AllArgsConstructor
 public class ShellDTO {
 	private String shellId;
-	private String materialID;
 	private String name;
 	private float ShellPrice;
 	private int quantity;

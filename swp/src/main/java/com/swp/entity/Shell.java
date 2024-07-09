@@ -27,8 +27,6 @@ public class Shell {
 	@Column(name = "ShellID")
 	private String shellId;
 	@Column
-	private String MaterialID;
-	@Column
 	private String name;
 	@Column
 	private float ShellPrice;
@@ -40,7 +38,7 @@ public class Shell {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(MaterialID, name, ShellPrice, /*products,*/ quantity, shellId);
+		return Objects.hash(name, ShellPrice, /*products,*/ quantity, shellId);
 	}
 
 	@Override
@@ -52,7 +50,7 @@ public class Shell {
 		if (getClass() != obj.getClass())
 			return false;
 		Shell other = (Shell) obj;
-		return Objects.equals(MaterialID, other.MaterialID) && Objects.equals(name, other.name)
+		return  Objects.equals(name, other.name)
 				&& Float.floatToIntBits(ShellPrice) == Float.floatToIntBits(other.ShellPrice)
 				/*&& Objects.equals(products, other.products)*/ && quantity == other.quantity
 				&& Objects.equals(shellId, other.shellId);
@@ -60,7 +58,7 @@ public class Shell {
 
 	@Override
 	public String toString() {
-		return "Shell [shellId=" + shellId + ", material=" + MaterialID + ", name=" + name + ", price=" + ShellPrice
+		return "Shell [shellId=" + shellId + ", name=" + name + ", price=" + ShellPrice
 				+ ", quantity=" + quantity /*+ ", products=" + products */ + "]";
 	}
 

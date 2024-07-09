@@ -7,7 +7,6 @@ public class ShellMapper {
 	public static ShellDTO mapToShellDTO(Shell shell) {
 		return new ShellDTO(
 				shell.getShellId(),
-				shell.getMaterialID(),
 				shell.getName(),
 				shell.getShellPrice(),
 				shell.getQuantity()
@@ -16,7 +15,6 @@ public class ShellMapper {
 	public static Shell mapToShell(ShellDTO shell) {
 		return new Shell(
 				shell.getShellId(),
-				shell.getMaterialID(),
 				shell.getName(),
 				shell.getShellPrice(),
 				shell.getQuantity()
