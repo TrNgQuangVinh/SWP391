@@ -27,7 +27,7 @@ public class Product {
 	@Column
 	private String productName;
 	@Column
-	private String productSize;
+	private float productSize;
 	@Column
 	private float productPrice;
 	@Column
@@ -66,7 +66,7 @@ public class Product {
 	}
 	
 	public Product(String accountId, String categoryId, String description, String diamondId, String imageLink, String materialId, String productId,
-			String productName, float productPrice, String productSize, int quatity, String shellId) {
+			String productName, float productPrice, float productSize, int quatity, String shellId) {
 		this.accountId = accountId;
 		this.categoryId = categoryId;
 		this.description = description;

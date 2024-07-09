@@ -12,7 +12,7 @@ import lombok.Setter;
 public class ProductDTO {
 	private String productId;
 	private String productName;
-	private String productSize;
+	private float productSize;
 	private float productPrice;
 	private int quantity;
 	private String description;
@@ -24,7 +24,7 @@ public class ProductDTO {
 	private String materialId;
 	
 	public ProductDTO(String accountId, String categoryId, String description, String diamondId, String imageLink, String materialId, String productId,
-			String productName, float productPrice, String productSize, int quatity, String shellId) {
+			String productName, float productPrice, float productSize, int quatity, String shellId) {
 		this.accountId = accountId;
 		this.categoryId = categoryId;
 		this.description = description;

@@ -4,7 +4,7 @@ import com.swp.dto.ProductDTO;
 import com.swp.entity.Product;
 
 public class ProductMapper {
-	public static ProductDTO mapToProductDTO2(Product prod) {
+	/*public static ProductDTO mapToProductDTO2(Product prod) {
 		return new ProductDTO(
 				prod.getProductId(),
 				prod.getProductName(),
@@ -35,7 +35,7 @@ public class ProductMapper {
 				prodDTO.getDescription(),
 				prodDTO.getImageLink()
 				);
-	}
+	}*/
 	public static Product mapToProduct(ProductDTO prodDTO) {
 		return new Product(
 				prodDTO.getAccountId(),
