@@ -37,13 +37,13 @@ public class Product {
 	@Column(name="ImageLink")
 	private String imageLink;
 	// @ManyToOne(fetch = FetchType.EAGER)
-
+	@Column(name = "CategoryID")
 	private String categoryId;
 	// @ManyToOne(fetch = FetchType.EAGER)
 	@Column(name = "DiamondID")
 	private String diamondId;
 	// @ManyToOne(fetch = FetchType.EAGER)
-
+	@Column(name = "ShellID")
 	private String shellId;
 	@Column(name = "AccountID")
 	private String accountId;
