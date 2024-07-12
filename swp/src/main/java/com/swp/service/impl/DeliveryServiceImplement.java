@@ -64,6 +64,7 @@ public class DeliveryServiceImplement implements DeliveryService {
 	public Delivery updateDelivery(String deliveryId, Delivery deli) {
 		Delivery needUpdate = repo.findById(deliveryId)
 				.orElseThrow(() -> new DeliveryNotFoundException("Delivery with the ID "+deliveryId+" does not exist"));
+		needUpdate.setAccountId(deli.getAccountId());
 		needUpdate.setAddress(deli.getAddress());
 		needUpdate.setStatusId(deli.getStatusId());
 		Delivery updated = repo.save(needUpdate);
