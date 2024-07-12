@@ -25,4 +25,11 @@ public interface FeedbackRepository extends JpaRepository<Feedback,String>{
 			+ "WHERE f.ProductID = :product_id "
 			+ "ORDER BY f.Date DESC", nativeQuery = true)
 	List<Feedback> findByProductIdOrderByDateDesc(@Param("product_id")String productid);
+	@Query(value="SELECT f.* "
+			+ "FROM Feedback f "
+			+ "INNER JOIN Products p "
+			+ "ON f.ProductID = p.ProductID "
+			+ "WHERE f.ProductID = :product_id "
+			+ "ORDER BY f.Date ASC", nativeQuery = true)
+	List<Feedback> findByProductIdOrderByDateAsc(@Param("product_id")String productid);
 }

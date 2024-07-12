@@ -1,5 +1,6 @@
 package com.swp.service.impl;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -42,6 +43,11 @@ public class FeedbackServiceImpl implements FeedbackService{
 
 	@Override
 	public FeedbackDTO addFeedback(FeedbackDTO feedbackDTO) {
+		if(feedbackDTO.getDate()==null) 
+		{
+			LocalDate dateCurr = LocalDate.now();
+			feedbackDTO.setDate(dateCurr);
+		}
 		Feedback feedback = FeedbackMapper.mapToFeedback(feedbackDTO);
 		Feedback savedFeedback = feedRepo.save(feedback);
 		return FeedbackMapper.mapToFeedbackDTO(savedFeedback);
@@ -74,5 +80,9 @@ public class FeedbackServiceImpl implements FeedbackService{
 		return feedbacks.stream().map((feedback) -> FeedbackMapper.mapToFeedbackDTO(feedback)).collect(Collectors.toList());
 	}
 	
-
+	@Override
+	public List<FeedbackDTO> getFeedbackByProductOrderByDateAsc(String productid) {
+		List<Feedback> feedbacks = feedRepo.findByProductIdOrderByDateAsc(productid);
+		return feedbacks.stream().map((feedback) -> FeedbackMapper.mapToFeedbackDTO(feedback)).collect(Collectors.toList());
+	}
 }
