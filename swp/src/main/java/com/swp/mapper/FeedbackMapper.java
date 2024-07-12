@@ -10,8 +10,8 @@ public class FeedbackMapper {
 				feedback.getFeedbackContent(),
 				feedback.getRating(),
 				feedback.getProductId(),
-				feedback.getAccountId()
-				
+				feedback.getAccountId(),
+				feedback.getDate()
 			);
 		}
 	public static Feedback mapToFeedback (FeedbackDTO feedbackDTO) {
@@ -20,8 +20,8 @@ public class FeedbackMapper {
 				feedbackDTO.getFeedbackContent(),
 				feedbackDTO.getRating(),
 				feedbackDTO.getProductId(),
-				feedbackDTO.getAccountId()
-				
+				feedbackDTO.getAccountId(),
+				feedbackDTO.getDate()
 				);
 	}
 }

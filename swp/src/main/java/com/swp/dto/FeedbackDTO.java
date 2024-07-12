@@ -1,5 +1,8 @@
 package com.swp.dto;
 
+import java.sql.Timestamp;
+import java.util.Date;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,4 +18,5 @@ public class FeedbackDTO {
 	private float rating;
 	private String productId;
 	private String accountId;
+	private Timestamp Date;
 }

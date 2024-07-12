@@ -1,5 +1,6 @@
 package com.swp.entity;
 
+import java.sql.Timestamp;
 import java.util.Objects;
 import java.util.Set;
 
@@ -36,14 +37,16 @@ public class Feedback {
 	private String productId;
 	@Column(name = "AccountID")
 	private String accountId;
+	@Column
+	private Timestamp Date;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "accountId", referencedColumnName="AccountID")
 	@JoinColumn(name = "productId", referencedColumnName="ProductID")
-	
+
 	@Override
 	public int hashCode() {
-		return Objects.hash(accountId, feedbackContent, feedbackId, productId, rating);
+		return Objects.hash(Date, accountId, feedbackContent, feedbackId, productId, rating);
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -54,20 +57,15 @@ public class Feedback {
 		if (getClass() != obj.getClass())
 			return false;
 		Feedback other = (Feedback) obj;
-		return Objects.equals(accountId, other.accountId) && Objects.equals(feedbackContent, other.feedbackContent)
+		return Objects.equals(Date, other.Date) && Objects.equals(accountId, other.accountId)
+				&& Objects.equals(feedbackContent, other.feedbackContent)
 				&& Objects.equals(feedbackId, other.feedbackId) && Objects.equals(productId, other.productId)
 				&& Float.floatToIntBits(rating) == Float.floatToIntBits(other.rating);
 	}
 	@Override
 	public String toString() {
 		return "Feedback [feedbackId=" + feedbackId + ", feedbackContent=" + feedbackContent + ", rating=" + rating
-				+ ", productId=" + productId + ", accountId=" + accountId + "]";
+				+ ", productId=" + productId + ", accountId=" + accountId + ", Date=" + Date + "]";
 	}
-	
-	
-	
-	
-
-
 
 }
