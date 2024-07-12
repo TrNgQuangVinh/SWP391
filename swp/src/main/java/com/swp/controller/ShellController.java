@@ -40,6 +40,17 @@ public class ShellController {
 		return ResponseEntity.ok(shellService.getShell());
 	}
 	
+	@GetMapping("/get/category/{id}")
+	public ResponseEntity<List<ShellDTO>> getProductByMaterial(@PathVariable("id") String id) {
+		//Category category = new Category(id, name, null);
+		if (id == null || id.trim().isEmpty()) {
+			// Return an appropriate response or throw a custom exception
+			return ResponseEntity.badRequest().body(null);
+		}
+		List<ShellDTO> shells = shellService.getShellbyCategory(id);
+		return ResponseEntity.ok(shells);
+	}
+	
 	@PostMapping
 	public ResponseEntity<ShellDTO> createShell(@RequestBody ShellDTO shellDTO) {
 		ShellDTO savedShell = shellService.addShell(shellDTO);

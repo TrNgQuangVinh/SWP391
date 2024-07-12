@@ -60,4 +60,10 @@ public class ShellServiceImpl implements ShellService {
 		
 	}
 
+	@Override
+	public List<ShellDTO> getShellbyCategory(String categoryid) {
+		List<Shell> shells = shellRepo.findByCategoryId(categoryid);
+		return shells.stream().map((shell)-> ShellMapper.mapToShellDTO(shell)).collect(Collectors.toList());
+	}
+
 }
