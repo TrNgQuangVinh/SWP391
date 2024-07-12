@@ -52,7 +52,7 @@ public class OrderServiceImplement implements OrderService {
 		Order findedOrder = repo.findById(id)
 				.orElseThrow(() -> new OrderNotFoundException("Order does not exist with this id:"+id));
 		findedOrder.setAddress(order.getAddress());
-		findedOrder.setProducts(order.getProducts());
+//		findedOrder.setProducts(order.getProducts());
 		findedOrder.setTotalPrice(order.getTotalPrice());
 		findedOrder.setStatusId(order.getStatusId());
 		Order updatedOrder = repo.save(findedOrder);
