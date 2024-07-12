@@ -39,16 +39,28 @@ public class FeedbackController {
 	
 	@GetMapping("/get/{id}")
 	public ResponseEntity<List<FeedbackDTO>> getFeedbackByProduct(@PathVariable("id") String id){
+		if (id == null || id.trim().isEmpty()) {
+			// Return an appropriate response or throw a custom exception
+			return ResponseEntity.badRequest().body(null);
+		}
 		return ResponseEntity.ok(feedService.getFeedbackByProduct(id));
 	}
 	
 	@GetMapping("/get/{id}/desc")
 	public ResponseEntity<List<FeedbackDTO>> getFeedbackByProductOrderedDesc(@PathVariable("id") String id){
+		if (id == null || id.trim().isEmpty()) {
+			// Return an appropriate response or throw a custom exception
+			return ResponseEntity.badRequest().body(null);
+		}
 		return ResponseEntity.ok(feedService.getFeedbackByProductOrderByDateDesc(id));
 	}
 	
 	@GetMapping("/get/{id}/asc")
 	public ResponseEntity<List<FeedbackDTO>> getFeedbackByProductOrderedAsc(@PathVariable("id") String id){
+		if (id == null || id.trim().isEmpty()) {
+			// Return an appropriate response or throw a custom exception
+			return ResponseEntity.badRequest().body(null);
+		}
 		return ResponseEntity.ok(feedService.getFeedbackByProductOrderByDateAsc(id));
 	}
 	
