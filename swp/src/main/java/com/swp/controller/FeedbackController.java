@@ -42,9 +42,14 @@ public class FeedbackController {
 		return ResponseEntity.ok(feedService.getFeedbackByProduct(id));
 	}
 	
-	@GetMapping("/get/{id}/ordered")
-	public ResponseEntity<List<FeedbackDTO>> getFeedbackByProductOrdered(@PathVariable("id") String id){
+	@GetMapping("/get/{id}/desc")
+	public ResponseEntity<List<FeedbackDTO>> getFeedbackByProductOrderedDesc(@PathVariable("id") String id){
 		return ResponseEntity.ok(feedService.getFeedbackByProductOrderByDateDesc(id));
+	}
+	
+	@GetMapping("/get/{id}/asc")
+	public ResponseEntity<List<FeedbackDTO>> getFeedbackByProductOrderedAsc(@PathVariable("id") String id){
+		return ResponseEntity.ok(feedService.getFeedbackByProductOrderByDateAsc(id));
 	}
 	
 	@PostMapping
