@@ -1,8 +1,8 @@
 package com.swp.entity;
 
-import java.sql.Timestamp;
+import java.time.LocalDate;
 import java.util.Objects;
-import java.util.Set;
+import java.util.Set; 
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -38,7 +38,7 @@ public class Feedback {
 	@Column(name = "AccountID")
 	private String accountId;
 	@Column
-	private Timestamp Date;
+	private LocalDate Date;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "accountId", referencedColumnName="AccountID")
