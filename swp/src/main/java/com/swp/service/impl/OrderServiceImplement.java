@@ -1,5 +1,6 @@
 package com.swp.service.impl;
 
+import java.sql.Timestamp;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -37,6 +38,10 @@ public class OrderServiceImplement implements OrderService {
 
 	@Override
 	public OrderDTO addOrder(OrderDTO dto) {
+		if(dto.getDate() == null) {
+			Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+			dto.setDate(timestamp);
+		}
 		Order order = OrderMapper.mapToOrder(dto);
 		Order savedOrder = repo.save(order);
 		return OrderMapper.mapToOrderDTO(savedOrder);
