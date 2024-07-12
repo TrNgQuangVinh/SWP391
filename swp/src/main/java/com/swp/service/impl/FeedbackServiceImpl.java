@@ -67,6 +67,12 @@ public class FeedbackServiceImpl implements FeedbackService{
 		feedRepo.deleteById(id);
 		
 	}
+
+	@Override
+	public List<FeedbackDTO> getFeedbackByProductOrderByDateDesc(String productid) {
+		List<Feedback> feedbacks = feedRepo.findByProductIdOrderByDateDesc(productid);
+		return feedbacks.stream().map((feedback) -> FeedbackMapper.mapToFeedbackDTO(feedback)).collect(Collectors.toList());
+	}
 	
 
 }

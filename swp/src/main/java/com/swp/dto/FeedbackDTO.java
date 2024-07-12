@@ -1,5 +1,7 @@
 package com.swp.dto;
 
+import java.time.LocalDate;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,4 +17,5 @@ public class FeedbackDTO {
 	private float rating;
 	private String productId;
 	private String accountId;
+	private LocalDate Date;
 }

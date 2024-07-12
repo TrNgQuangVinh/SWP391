@@ -42,6 +42,11 @@ public class FeedbackController {
 		return ResponseEntity.ok(feedService.getFeedbackByProduct(id));
 	}
 	
+	@GetMapping("/get/{id}/ordered")
+	public ResponseEntity<List<FeedbackDTO>> getFeedbackByProductOrdered(@PathVariable("id") String id){
+		return ResponseEntity.ok(feedService.getFeedbackByProductOrderByDateDesc(id));
+	}
+	
 	@PostMapping
 	public ResponseEntity<FeedbackDTO> createFeedback(@RequestBody FeedbackDTO feedDTO) {
 		FeedbackDTO savedFeedback = feedService.addFeedback(feedDTO);
