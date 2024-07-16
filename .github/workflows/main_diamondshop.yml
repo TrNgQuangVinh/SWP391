@@ -31,7 +31,7 @@ jobs:
         if: always()
         with:
           name: java-app
-          path: '${{ github.workspace }}/target/*.jar'
+          path: '${{ github.workspace }}/target/java-app.jar'
           if-no-files-found: error
           retention-days: 90
 
