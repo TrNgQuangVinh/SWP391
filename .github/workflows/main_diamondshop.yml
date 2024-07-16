@@ -30,7 +30,7 @@ jobs:
         uses: actions/upload-artifact@v3
         if: always()
         with:
-          name: swp-0.0.1-SNAPSHOT
+          name: java-app
           path: '${{ github.workspace }}/target/swp-0.0.1-SNAPSHOT.jar'
           if-no-files-found: error
           retention-days: 90
@@ -48,7 +48,7 @@ jobs:
       - name: Download artifact from build job
         uses: actions/download-artifact@v3
         with:
-          name: swp-0.0.1-SNAPSHOT
+          name: java-app
           path: '${{ github.workspace }}/target/swp-0.0.1-SNAPSHOT.jar'
       - name: Login to Azure
         uses: azure/login@v1
