@@ -35,6 +35,8 @@ public class DiamondServiceImpl implements DiamondService {
 
 	@Override
 	public DiamondDTO addDiamond(DiamondDTO diamondDTO) {
+		//TODO: validate diamond data to prevent duplicate everything
+		//TODO: auto generate id for everything by their format (or use @ID Auto_Generated=true or smth)
 		Diamond diamond = DiamondMapper.mapToDiamond(diamondDTO);
 		Diamond savedDiamond = diamRepo.save(diamond);
 		return DiamondMapper.mapToDiamondDTO(savedDiamond);

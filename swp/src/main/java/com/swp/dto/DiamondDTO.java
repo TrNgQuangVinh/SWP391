@@ -17,7 +17,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class DiamondDTO {
-	private String diamondId;
+	private int diamondId;
 	private float caratWeight;
 	private String color;
 	private String cut;

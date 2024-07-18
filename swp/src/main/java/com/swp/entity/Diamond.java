@@ -23,7 +23,7 @@ import lombok.Setter;
 public class Diamond {
 	@Id
 	@Column(name = "DiamondID")
-	private String diamondId;
+	private int diamondId;
 	@Column
 	private float caratWeight;
 	@Column
