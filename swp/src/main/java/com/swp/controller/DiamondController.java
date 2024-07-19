@@ -43,12 +43,12 @@ public class DiamondController {
 		return new ResponseEntity<>(savedDiamond,HttpStatus.CREATED);
 	}
 	@PutMapping("{id}")
-	public ResponseEntity<DiamondDTO> updateProduct(@PathVariable("id") String diamondID, @RequestBody Diamond diamond) {
+	public ResponseEntity<DiamondDTO> updateProduct(@PathVariable("id") int diamondID, @RequestBody Diamond diamond) {
 		DiamondDTO upDiamond = diamondService.updateDiamond(diamondID, diamond);
 		return ResponseEntity.ok(upDiamond);
 	}
 	@DeleteMapping("{id}")
-	public ResponseEntity<String> deleteProduct(@PathVariable("id") String diamondID) {
+	public ResponseEntity<String> deleteProduct(@PathVariable("id") int diamondID) {
 		diamondService.deleteDiamond(diamondID);
 		return ResponseEntity.ok("Diamond of this id " + diamondID + " has been deleted");
 	}

@@ -15,12 +15,14 @@ import com.swp.exception.UserNotFoundException;
 import com.swp.mapper.DiamondMapper;
 import com.swp.repository.DiamondRepository;
 import com.swp.service.DiamondService;
+import com.swp.service.EmailService;
 
 @Service
 public class DiamondServiceImpl implements DiamondService {
 	
 	@Autowired
 	private DiamondRepository diamRepo;
+	
 	
 	public DiamondServiceImpl(DiamondRepository diamRepo) {
 		super();
@@ -43,7 +45,7 @@ public class DiamondServiceImpl implements DiamondService {
 	}
 
 	@Override
-	public DiamondDTO updateDiamond(String id, Diamond diamond) {
+	public DiamondDTO updateDiamond(int id, Diamond diamond) {
 		Diamond diam = diamRepo.findById(id)
 				.orElseThrow(()-> new DiamondNotFoundException("Diamond does not exist with this id:" + id));
 		diam.setDiamondId(diamond.getDiamondId());
@@ -58,7 +60,7 @@ public class DiamondServiceImpl implements DiamondService {
 	}
 
 	@Override
-	public void deleteDiamond(String id) {
+	public void deleteDiamond(int id) {
 		Diamond diam = diamRepo.findById(id)
 				.orElseThrow(()-> new DiamondNotFoundException("Diamond does not exist with this id:" + id));
 		diamRepo.deleteById(id);
