@@ -8,6 +8,6 @@ import com.swp.entity.Diamond;
 public interface DiamondService {
 	List<DiamondDTO> getDiamond();
 	DiamondDTO addDiamond(DiamondDTO diamondDTO);
-	DiamondDTO updateDiamond(String id, Diamond diamond);
-	void deleteDiamond(String id);
+	DiamondDTO updateDiamond(int id, Diamond diamond);
+	void deleteDiamond(int id);
 }

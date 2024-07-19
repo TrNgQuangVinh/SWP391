@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.swp.entity.Diamond;
 
 @Repository
-public interface DiamondRepository extends JpaRepository<Diamond,String> {
+public interface DiamondRepository extends JpaRepository<Diamond,Integer> {
 	
 }
