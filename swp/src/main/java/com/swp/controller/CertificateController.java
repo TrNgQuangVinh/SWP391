@@ -7,8 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -47,7 +47,7 @@ public class CertificateController {
 		CertificateDTO saved = service.addCertificate(dto);
 		return new ResponseEntity<>(saved,HttpStatus.CREATED);
 	}
-	@PutMapping("/{id}")
+	@PatchMapping("/{id}")
 	public ResponseEntity<Certificate> updateCertificate(@PathVariable("id")String Id,@RequestBody Certificate cert){
 		Certificate uped = service.updateCertificate(Id, cert);
 		return ResponseEntity.ok(uped);
