@@ -1,5 +1,6 @@
 package com.swp.entity;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 import jakarta.persistence.Column;
@@ -32,9 +33,9 @@ public class Warranty {
 	@Column(name="ProductID")
 	private String productId;
 	@Column
-	private Date purchaseDate;
+	private LocalDate purchaseDate;
 	@Column
-	private Date warrantyUntil;
+	private LocalDate warrantyUntil;
 	
 	@OneToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "ProductID", referencedColumnName="ProductID")

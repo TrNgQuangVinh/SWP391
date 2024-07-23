@@ -8,9 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.swp.dto.CategoryDTO;
 import com.swp.entity.Category;
-import com.swp.entity.Shell;
 import com.swp.mapper.CategoryMapper;
-import com.swp.mapper.ShellMapper;
 import com.swp.repository.CategoryRepository;
 import com.swp.service.CategoryService;
 

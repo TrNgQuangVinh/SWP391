@@ -7,8 +7,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import com.swp.entity.OrderDetailId;
 import com.swp.entity.OrderDetail;
+import com.swp.entity.OrderDetailId;
 
 public interface OrderDetailRepository extends JpaRepository<OrderDetail, OrderDetailId> {
 	Optional<OrderDetail> findById(OrderDetailId id);

@@ -1,7 +1,7 @@
 package com.swp.mapper;
 
-import com.swp.entity.Certificate;
 import com.swp.dto.CertificateDTO;
+import com.swp.entity.Certificate;
 
 public class CertificateMapper {
 	public static Certificate mapToCertificate(CertificateDTO dto) {

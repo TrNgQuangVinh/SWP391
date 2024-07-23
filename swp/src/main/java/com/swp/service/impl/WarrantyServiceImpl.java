@@ -27,6 +27,12 @@ public class WarrantyServiceImpl implements WarrantyService {
 		List<Warranty> warranties = warrRepo.findAll();
 		return warranties.stream().map((warrgory)->WarrantyMapper.mapToWarrantyDTO(warrgory)).collect(Collectors.toList());
 	}
+	
+	@Override
+	public List<WarrantyDTO> getWarrantybyCustID(String custID) {
+		List<Warranty> warranties = warrRepo.findByCustomerID(custID);
+		return warranties.stream().map((warrback) ->WarrantyMapper.mapToWarrantyDTO(warrback)).collect(Collectors.toList());
+	}
 
 	@Override
 	public List<WarrantyDTO> getWarrantybyCustName(String custName) {

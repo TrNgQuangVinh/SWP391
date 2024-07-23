@@ -14,4 +14,5 @@ public interface WarrantyService {
 	WarrantyDTO addWarranty(WarrantyDTO warrantyDTO);
 	Warranty updateWarranty(String id, Warranty warranty);
 	void deleteWarranty(String id);
+	List<WarrantyDTO> getWarrantybyCustID(String custID);
 }

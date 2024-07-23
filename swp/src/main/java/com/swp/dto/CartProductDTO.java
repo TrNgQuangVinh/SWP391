@@ -1,9 +1,5 @@
 package com.swp.dto;
 
-import java.util.Set;
-
-import com.swp.entity.Product;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

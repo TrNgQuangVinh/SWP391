@@ -48,6 +48,17 @@ public class WarrantyController {
 		return ResponseEntity.ok(warrantys);
 	}
 	
+	@GetMapping("/get/account/{id}")
+	public ResponseEntity<List<WarrantyDTO>> getWarrantyByCustomerID(@PathVariable("id") String id) {
+		//Category category = new Category(id, name, null);
+		if (id == null || id.trim().isEmpty()) {
+			// Return an appropriate response or throw a custom exception
+			return ResponseEntity.badRequest().body(null);
+		}
+		List<WarrantyDTO> warrantys = warrantyService.getWarrantybyCustID(id);
+		return ResponseEntity.ok(warrantys);
+	}
+	
 	@GetMapping("/get/product/{name}")
 	public ResponseEntity<List<WarrantyDTO>> getWarrantyByProductName(@PathVariable("name") String name) {
 		//Category category = new Category(id, name, null);

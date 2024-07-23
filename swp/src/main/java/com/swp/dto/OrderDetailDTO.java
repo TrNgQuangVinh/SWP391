@@ -1,8 +1,5 @@
 package com.swp.dto;
 
-import com.swp.entity.Order;
-import com.swp.entity.Product;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

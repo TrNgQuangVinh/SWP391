@@ -1,6 +1,5 @@
 package com.swp.entity;
 
-import java.util.List;
 import java.util.Objects;
 
 import jakarta.persistence.Column;

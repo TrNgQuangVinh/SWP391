@@ -7,7 +7,6 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import com.swp.dto.ProductDTO;
 import com.swp.entity.Product;
 
 @Repository
@@ -44,4 +43,12 @@ public interface ProductRepository extends JpaRepository<Product,String> {
 			+ "ON m.MaterialID = p.MaterialID "
 			+ "WHERE p.MaterialID = :material_id", nativeQuery = true)
 	List<Product> findByMaterial(@Param("material_id")String materialid);
+	@Query(value="SELECT TOP 1 p.* "
+			+ "FROM Products p "
+			+ "WHERE p.MaterialID = :material_id "
+			+ "AND p.ShellID = :shell_id "
+			+ "AND p.DiamondID = :diamond_id", nativeQuery = true)
+	Product findDuplicate(@Param("material_id")String materialid,
+						  @Param("shell_id")String shellid,
+						  @Param("diamond_id")String diamondid);
 }

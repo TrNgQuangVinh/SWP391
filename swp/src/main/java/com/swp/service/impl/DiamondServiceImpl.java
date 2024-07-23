@@ -8,14 +8,10 @@ import org.springframework.stereotype.Service;
 
 import com.swp.dto.DiamondDTO;
 import com.swp.entity.Diamond;
-import com.swp.entity.Product;
 import com.swp.exception.DiamondNotFoundException;
-import com.swp.exception.ProductNotFoundException;
-import com.swp.exception.UserNotFoundException;
 import com.swp.mapper.DiamondMapper;
 import com.swp.repository.DiamondRepository;
 import com.swp.service.DiamondService;
-import com.swp.service.EmailService;
 
 @Service
 public class DiamondServiceImpl implements DiamondService {
@@ -39,6 +35,10 @@ public class DiamondServiceImpl implements DiamondService {
 	public DiamondDTO addDiamond(DiamondDTO diamondDTO) {
 		//TODO: validate diamond data to prevent duplicate everything
 		//TODO: auto generate id for everything by their format (or use @ID Auto_Generated=true or smth)
+		//int count = diamRepo.findAll().size();
+		int lastID = diamRepo.findLastId();
+		lastID += 1;
+		diamondDTO.setDiamondId(lastID);
 		Diamond diamond = DiamondMapper.mapToDiamond(diamondDTO);
 		Diamond savedDiamond = diamRepo.save(diamond);
 		return DiamondMapper.mapToDiamondDTO(savedDiamond);
