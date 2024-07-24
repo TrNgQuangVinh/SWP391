@@ -37,7 +37,7 @@ public class WarrantyController {
 		return ResponseEntity.ok(warrantyService.getWarranty());
 	}
 	
-	@GetMapping("/get/account/{name}")
+	@GetMapping("/get/account/name/{name}")
 	public ResponseEntity<List<WarrantyDTO>> getWarrantyByCustomerName(@PathVariable("name") String name) {
 		//Category category = new Category(id, name, null);
 		if (name == null || name.trim().isEmpty()) {
@@ -48,7 +48,7 @@ public class WarrantyController {
 		return ResponseEntity.ok(warrantys);
 	}
 	
-	@GetMapping("/get/account/{id}")
+	@GetMapping("/get/account/id/{id}")
 	public ResponseEntity<List<WarrantyDTO>> getWarrantyByCustomerID(@PathVariable("id") String id) {
 		//Category category = new Category(id, name, null);
 		if (id == null || id.trim().isEmpty()) {
