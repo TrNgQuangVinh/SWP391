@@ -7,12 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.swp.dto.ProductDTO;
-import com.swp.entity.Category;
 import com.swp.entity.Product;
 import com.swp.exception.ProductNotFoundException;
-import com.swp.exception.UserNotFoundException;
 import com.swp.mapper.ProductMapper;
-import com.swp.mapper.UserMapper;
 import com.swp.repository.ProductRepository;
 import com.swp.service.ProductService;
 
@@ -52,9 +49,21 @@ public class ProductServiceImpl implements ProductService {
 
 	@Override
 	public ProductDTO addProduct(ProductDTO productDTO) {
-		Product product = ProductMapper.mapToProduct(productDTO);
-		Product savedProduct = prodRepo.save(product);
-		return ProductMapper.mapToProductDTO(savedProduct);
+		String diamond = productDTO.getDiamondId().trim(); 
+		String material = productDTO.getMaterialId().trim(); 
+		String shell = productDTO.getShellId().trim(); 
+		Product duplicate = prodRepo.findDuplicate(diamond, material, shell);
+		if(duplicate == null) 
+		{
+			Product product = ProductMapper.mapToProduct(productDTO);
+			Product savedProduct = prodRepo.save(product);
+			return ProductMapper.mapToProductDTO(savedProduct);
+		}
+		else
+		{
+			productDTO = null;
+			return productDTO;
+		}
 
 	}
 

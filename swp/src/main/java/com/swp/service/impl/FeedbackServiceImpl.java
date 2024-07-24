@@ -8,12 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.swp.dto.FeedbackDTO;
-import com.swp.dto.ProductDTO;
 import com.swp.entity.Feedback;
-import com.swp.entity.Product;
-import com.swp.exception.ProductNotFoundException;
 import com.swp.mapper.FeedbackMapper;
-import com.swp.mapper.ProductMapper;
 import com.swp.repository.FeedbackRepository;
 import com.swp.service.FeedbackService;
 

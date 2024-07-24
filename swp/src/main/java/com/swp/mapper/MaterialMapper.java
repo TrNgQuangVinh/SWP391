@@ -1,8 +1,6 @@
 package com.swp.mapper;
 
-import com.swp.dto.CategoryDTO;
 import com.swp.dto.MaterialDTO;
-import com.swp.entity.Category;
 import com.swp.entity.Material;
 
 public class MaterialMapper {

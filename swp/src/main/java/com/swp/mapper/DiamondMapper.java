@@ -1,9 +1,7 @@
 package com.swp.mapper;
 
 import com.swp.dto.DiamondDTO;
-import com.swp.dto.ProductDTO;
 import com.swp.entity.Diamond;
-import com.swp.entity.Product;
 
 public class DiamondMapper {
 	public static DiamondDTO mapToDiamondDTO(Diamond diam) {

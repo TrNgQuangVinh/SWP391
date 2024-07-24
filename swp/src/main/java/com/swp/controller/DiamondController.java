@@ -1,9 +1,5 @@
 package com.swp.controller;
 
-import com.swp.dto.DiamondDTO;
-import com.swp.entity.Diamond;
-import com.swp.entity.Product;
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.swp.dto.DiamondDTO;
+import com.swp.entity.Diamond;
 import com.swp.service.DiamondService;
 
 @CrossOrigin(origins = "*")

@@ -8,8 +8,6 @@ import org.springframework.stereotype.Service;
 
 import com.swp.dto.MaterialDTO;
 import com.swp.entity.Material;
-import com.swp.entity.Product;
-import com.swp.entity.Material;
 import com.swp.mapper.MaterialMapper;
 import com.swp.repository.MaterialRepository;
 import com.swp.service.MaterialService;

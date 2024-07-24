@@ -22,4 +22,6 @@ public interface UserService extends UserDetailsService{
 	void deleteUser(String accountId);
 	
 	User saveResigstration(UserResigstration userResigstration);
+
+	UserDTO updateUserAddress(String accountId, UserDTO updatedUser);
 }

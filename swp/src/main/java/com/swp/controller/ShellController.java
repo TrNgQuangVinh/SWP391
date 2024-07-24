@@ -15,9 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.swp.dto.ProductDTO;
 import com.swp.dto.ShellDTO;
-import com.swp.entity.Product;
 import com.swp.entity.Shell;
 import com.swp.service.ShellService;
 

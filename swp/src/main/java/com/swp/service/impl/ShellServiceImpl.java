@@ -7,12 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.swp.dto.ShellDTO;
-import com.swp.entity.Product;
 import com.swp.entity.Shell;
-import com.swp.exception.ProductNotFoundException;
-import com.swp.mapper.ProductMapper;
 import com.swp.mapper.ShellMapper;
-import com.swp.repository.ProductRepository;
 import com.swp.repository.ShellRepository;
 import com.swp.service.ShellService;
 

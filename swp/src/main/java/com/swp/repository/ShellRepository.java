@@ -6,7 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import com.swp.entity.Product;
 import com.swp.entity.Shell;
 public interface ShellRepository extends JpaRepository<Shell, String> {
 	@Query(value="SELECT DISTINCT s.* "

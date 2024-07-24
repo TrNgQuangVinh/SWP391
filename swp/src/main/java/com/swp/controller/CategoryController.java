@@ -16,10 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.swp.dto.CategoryDTO;
-import com.swp.dto.ShellDTO;
 import com.swp.entity.Category;
-import com.swp.entity.Shell;
-import com.swp.repository.CategoryRepository;
 import com.swp.service.CategoryService;
 
 @CrossOrigin(origins = "*")

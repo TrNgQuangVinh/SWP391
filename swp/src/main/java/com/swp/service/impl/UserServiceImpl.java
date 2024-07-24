@@ -1,6 +1,5 @@
 package com.swp.service.impl;
 
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
@@ -11,19 +10,15 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.swp.dto.UserDTO;
 import com.swp.dto.UserResigstration;
-import com.swp.entity.Role;
 import com.swp.entity.User;
 import com.swp.exception.UserNotFoundException;
 import com.swp.mapper.UserMapper;
 import com.swp.repository.UserRepository;
 import com.swp.service.UserService;
-
-import lombok.AllArgsConstructor;
 
 @Service
 
@@ -67,6 +62,15 @@ public class UserServiceImpl implements UserService {
 		user.setPassword(updatedUser.getPassword());
 		user.setPhonenumber(updatedUser.getPhonenumber());
 		user.setUsername(updatedUser.getUsername());
+		User updatedUserObj = userRepo.save(user);
+		return UserMapper.mapToUserDTO(updatedUserObj);
+	}
+	
+	@Override
+	public UserDTO updateUserAddress(String accountId, UserDTO updatedUser) {
+		User user = userRepo.findById(accountId)
+				.orElseThrow(() -> new UserNotFoundException("User does not exist with this id:" + accountId));
+		user.setAddress(updatedUser.getAddress());
 		User updatedUserObj = userRepo.save(user);
 		return UserMapper.mapToUserDTO(updatedUserObj);
 	}

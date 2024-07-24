@@ -7,7 +7,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import com.swp.dto.DeliveryDTO;
 import com.swp.entity.Delivery;
 
 public interface DeliveryRepository extends JpaRepository<Delivery, String> {

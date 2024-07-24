@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.swp.dto.DiamondDTO;
 import com.swp.dto.MailDTO;
 import com.swp.service.EmailService;
 

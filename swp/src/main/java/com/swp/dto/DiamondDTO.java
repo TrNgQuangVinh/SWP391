@@ -1,12 +1,5 @@
 package com.swp.dto;
 
-import java.util.List;
-
-import com.swp.entity.Product;
-
-import jakarta.persistence.Column;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

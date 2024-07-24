@@ -8,7 +8,6 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import com.swp.entity.Feedback;
-import com.swp.entity.Product;
 
 @Repository
 public interface FeedbackRepository extends JpaRepository<Feedback,String>{

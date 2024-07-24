@@ -3,7 +3,6 @@ package com.swp.service;
 import java.util.List;
 
 import com.swp.dto.FeedbackDTO;
-import com.swp.dto.ProductDTO;
 import com.swp.entity.Feedback;
 
 public interface FeedbackService {
